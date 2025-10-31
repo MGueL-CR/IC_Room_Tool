@@ -805,7 +805,20 @@ nav {
     background-color: var(--bg-custom) !important;
 }
 
+
+.chkTipos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    justify-content: space-between;
+}
+
+.chkTipos .row {
+    flex: 1 0 180px;
+}
+
 .chkTipos label {
+    width: 120px;
     padding: 6px 10px;
     border-radius: 12px;
     border: 1px solid var(--bg-custom) !important;
@@ -826,6 +839,8 @@ nav {
 }
 
 .chkTipos input[type="checkbox"]:checked+label::after {
-    content: " ✓";
+    margin-left: 12px;
+    padding-left: 3px;
+    content: "✓";
     font-weight: bolder;
 }
