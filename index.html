@@ -353,13 +353,13 @@
                                     </div>
                                 </div>
                                 <div class="col chkTipos">
-                                    <div class="row pt-1">
+                                    <div class="row">
                                         <div class="col">
                                             <input type="checkbox" name="cantExacta" id="cantExacta" class="alignVe" />
                                             <label for="cantExacta" class="bg-blanco">Depende Totalmente</label>
                                         </div>
                                     </div>
-                                    <div class="row">
+                                    <div class="row my-1">
                                         <div class="col">
                                             <input type="checkbox" name="comparteUds" id="comparteUds"
                                                 class="alignVe" />
@@ -377,16 +377,25 @@
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <span>Resumen:</span>
-                                    <textarea name="resultado" id="resultado"></textarea>
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>Resumen:</span>
+                                            <textarea name="resultado" id="resultado"></textarea>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="col">
-                                    <input type="button" value="Copiar" id="btnDependencia" class="btn btn-main" />
-                                </div>
-                                <div class="col">
-                                    <input type="reset" value="Borrar" id="btnDel" class="btn warn" />
+                                    <div class="row">
+                                        <div class="col">
+                                            <input type="button" value="Copiar" id="btnDependencia"
+                                                class="btn btn-main" />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <input type="reset" value="Borrar" id="btnDel" class="btn warn" />
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </form>
