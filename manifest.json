@@ -1,0 +1,33 @@
+{
+    "name": "ICR Tool",
+    "description": "Administra y trabaje de manera más facil con plantillas de texto.",
+    "author": "@MGueL-CR",
+    "version": "1.0.0.0",
+    "manifest_version": 3,
+    "action": {
+        "default_title": "ICR Tool",
+        "default_description": "Administra y trabaje de manera más facil con plantillas de texto.",
+        "default_popup": "/assets/html/popup.html",
+        "default_icon": {
+            "16": "/assets/icons/utiles-x16.png",
+            "32": "/assets/icons/utiles-x32.png",
+            "64": "/assets/icons/utiles-x64.png",
+            "128": "/assets/icons/utiles-x128.png"
+        }
+    },
+    "side_panel": {
+        "default_path": "/index.html"
+    },
+    "icons": {
+        "16": "/assets/icons/utiles-x16.png",
+        "32": "/assets/icons/utiles-x32.png",
+        "64": "/assets/icons/utiles-x64.png",
+        "128": "/assets/icons/utiles-x128.png"
+    },
+    "background": {
+        "service_worker": "/assets/libs/js/service-worker.js"
+    },
+    "permissions": [
+        "sidePanel"
+    ]
+}
