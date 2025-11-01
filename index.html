@@ -116,12 +116,12 @@
 
     <main class="container transition-color radius">
         <div class="tabs bg-blanco">
-            <input type="radio" name="tabs" id="tabone" />
+            <input type="radio" name="tabs" id="tabone" checked="checked" />
             <label class="label bg-blanco" for="tabone">Notas</label>
             <div class="tab">
                 <div class="row">
                     <div class="col">
-                        <details name="generales" id="anotaciones" class="card bg-opaco shadows" open>
+                        <details name="anotaciones" id="anotaciones1" class="card bg-opaco shadows" open>
                             <summary>Notas #1</summary>
                             <form action="#">
                                 <div class="row">
@@ -137,7 +137,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <details name="generales" id="anotaciones" class="card bg-opaco shadows" open>
+                        <details name="anotaciones" id="anotaciones2" class="card bg-opaco shadows" open>
                             <summary>Notas #2</summary>
                             <form action="#">
                                 <div class="row">
@@ -153,7 +153,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <details name="generales" id="anotaciones" class="card bg-opaco shadows" open>
+                        <details name="anotaciones" id="anotaciones3" class="card bg-opaco shadows" open>
                             <summary>Notas #3</summary>
                             <form action="#">
                                 <div class="row">
@@ -169,8 +169,8 @@
                 </div>
             </div>
 
-            <input type="radio" name="tabs" id="tabsix" />
-            <label class="label bg-blanco" for="tabsix">Comentarios</label>
+            <input type="radio" name="tabs" id="tabtwo" />
+            <label class="label bg-blanco" for="tabtwo">Comentarios</label>
             <div class="tab">
                 <div class="row">
                     <div class="col">
@@ -329,7 +329,7 @@
                 </div>
             </div>
 
-            <input type="radio" name="tabs" id="tabthree" checked="checked" />
+            <input type="radio" name="tabs" id="tabthree" />
             <label class="label bg-blanco" for="tabthree">Dependencias</label>
             <div class="tab">
                 <div class="row">
@@ -404,8 +404,8 @@
                 </div>
             </div>
 
-            <input type="radio" name="tabs" id="tabfive" />
-            <label class="label bg-blanco" for="tabfive">Tier-2</label>
+            <input type="radio" name="tabs" id="tabfour" />
+            <label class="label bg-blanco" for="tabfour">Tier-2</label>
             <div class="tab">
                 <div class="row">
                     <div class="col">
@@ -591,14 +591,14 @@
                 </div>
             </div>
 
-            <input type="radio" name="tabs" id="tabtwo" />
-            <label class="label bg-blanco" for="tabtwo">Filtrar Lotes</label>
+            <input type="radio" name="tabs" id="tabfive" />
+            <label class="label bg-blanco" for="tabfive">Filtrar Lotes</label>
             <div class="tab">
                 <form id="frmFiltro" action="#">
                     <div class="row">
                         <div class="col ">
-                            <card id="dtlsMole" class="card bg-opaco shadows" open>
-                                <p id="smrMole">Filtrar lotes desde...</p>
+                            <details class="card bg-opaco shadows" open>
+                                <summary>Filtrar lotes desde...</summary>
                                 <div class="row pos-relativo">
                                     <div class="col pos-absoluto corner-tr">
                                         <input type="reset" class="btn" value="Borrar" />
@@ -611,7 +611,7 @@
                                             placeholder="Pegar aqui..."></textarea>
                                     </div>
                                 </div>
-                            </card>
+                            </details>
                         </div>
                         <div class="col h-all">
                             <div class="card h-1a bg-none borderless">
@@ -630,8 +630,8 @@
                 </form>
             </div>
 
-            <input type="radio" name="tabs" id="tabfour" />
-            <label class="label bg-blanco" for="tabfour">Plantillas Correos</label>
+            <input type="radio" name="tabs" id="tabsix" />
+            <label class="label bg-blanco" for="tabsix">Plantillas Correos</label>
             <div class="tab">
                 <form action="#" class="row">
                     <div class="col">
@@ -1144,7 +1144,7 @@
                 d="M90.1,65.42a5.41,5.41,0,1,0,5.41,5.41A5.41,5.41,0,0,0,90.1,65.42Zm0,8.82a3.41,3.41,0,1,1,3.41-3.41A3.41,3.41,0,0,1,90.1,74.24Z" />
         </svg>
     </div>
-    <script src="./assets/libs/js/main.js"></script>
+    <script type="module" src="./assets/libs/js/main.js"></script>
 </body>
 
 </html>
