@@ -348,6 +348,10 @@ input[type="checkbox"] {
     width: 75%;
 }
 
+.w50 {
+    width: 50%;
+}
+
 .wauto {
     width: max-content;
 }
@@ -397,6 +401,23 @@ input[type="checkbox"] {
     align-items: center;
     margin-top: -8px;
 }
+
+.items-column {
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.items-row {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.items-row div {
+    flex: 1 1 250px !important;
+}
+
 
 blockquote {
     border-color: var(--clr-custom);
@@ -485,13 +506,11 @@ select option {
 }
 
 details summary::marker {
-    content: "+ ";
     font-weight: 800;
     font-size: medium;
 }
 
 details[open] summary::marker {
-    content: "-- ";
     color: var(--clr-custom);
 }
 
@@ -779,7 +798,6 @@ nav {
 
     .img-fondo {
         position: fixed;
-        top: 0;
     }
 
     input[type=button],
@@ -795,6 +813,15 @@ nav {
 
     .chkTipos .row {
         flex-basis: content;
+    }
+
+    .items-column {
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+
+    .selfCenter {
+        place-self: unset;
     }
 }
 
@@ -854,10 +881,4 @@ nav {
     padding-left: 3px;
     content: "✓";
     font-weight: bolder;
-}
-
-.center-butons {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
