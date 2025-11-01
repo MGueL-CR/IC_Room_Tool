@@ -206,7 +206,6 @@ input[type="checkbox"] {
     padding-top: 0.4rem !important;
 }
 
-
 .selfCenter {
     place-self: center center;
 }
@@ -778,11 +777,24 @@ nav {
 
 @media (max-width: 40rem) {
 
+    .img-fondo {
+        position: fixed;
+        top: 0;
+    }
+
     input[type=button],
     input[type=submit],
     input[type=reset],
     button {
         margin-bottom: 1rem !important;
+    }
+
+    .chkTipos {
+        flex-direction: row;
+    }
+
+    .chkTipos .row {
+        flex-basis: content;
     }
 }
 
@@ -809,16 +821,15 @@ nav {
 .chkTipos {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.25rem;
-    justify-content: space-between;
+    justify-content: start;
+    gap: 0.125rem;
 }
 
 .chkTipos .row {
-    flex: 1 0 180px;
+    flex: 1 1 200px;
 }
 
 .chkTipos label {
-    width: 120px;
     padding: 6px 10px;
     border-radius: 12px;
     border: 1px solid var(--bg-custom) !important;
@@ -843,4 +854,10 @@ nav {
     padding-left: 3px;
     content: "✓";
     font-weight: bolder;
+}
+
+.center-butons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
