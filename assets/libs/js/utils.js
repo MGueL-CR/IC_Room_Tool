@@ -12,8 +12,8 @@ export const utils = {
         }
     },
 
-    obtenerObjetosPorTag(pClase) {
-        return document.getElementsByTagName(pClase);
+    obtenerObjetosPorTag(pTag) {
+        return document.getElementsByTagName(pTag);
     },
 
     obtenerElementoPorTag(pObj, pClase) {

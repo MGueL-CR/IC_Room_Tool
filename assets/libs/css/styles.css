@@ -5,7 +5,6 @@
 
 
 :root {
-    color-scheme: light dark;
     --border: 1px solid currentColor;
     --cmed: currentColor;
 
@@ -33,9 +32,11 @@
     --bg-blur-blk3: rgba(0, 0, 0, 0.3);
 }
 
-.thm-light {
-    --clr-custom: var(--color-theme);
-    --bg-custom: var(--bg-theme);
+html {
+    color-scheme: light dark;
+}
+
+html:has(#rdoSun:checked) {
     --cemph: var(--clr-custom);
     --cbg: var(--bg-tab-wht);
     --clink: var(--clr-text2-wht);
@@ -62,9 +63,7 @@
     color: var(--clr-text-wht);
 }
 
-.thm-dark {
-    --clr-custom: var(--color-theme);
-    --bg-custom: var(--bg-theme);
+html:has(#rdoMoon:checked) {
     --cemph: var(--clr-custom);
     --cbg: var(--bg-tab-blk);
     --clink: var(--clr-text2-blk);
@@ -105,6 +104,9 @@ mark {
 
 
 body {
+
+    --clr-custom: var(--color-theme);
+    --bg-custom: var(--bg-theme);
     min-height: 100vh;
     padding-top: 1.25rem;
     position: relative;
@@ -768,13 +770,14 @@ nav {
     border-left-width: 0px !important;
 }
 
+/*
 .btn-active {
     border: var(--border) !important;
     box-shadow: 0 0 3px var(--clr-custom);
     background-color: var(--bg-custom) !important;
     filter: grayscale(0%) !important;
 }
-
+*/
 .btn-main {
     border: var(--border) !important;
     background-color: var(--bg-custom) !important;
@@ -881,4 +884,36 @@ nav {
     padding-left: 3px;
     content: "✓";
     font-weight: bolder;
+}
+
+.grpThemes label {
+    padding: 3px 6px;
+    backdrop-filter: saturate(60%);
+    border: 1px solid var(--bg-custom) !important;
+    filter: grayscale(100%);
+}
+
+.grpThemes label:hover {
+    filter: grayscale(50%);
+}
+
+.grpThemes .round-ini {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+.grpThemes .round-end {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.grpThemes input[type="radio"] {
+    display: none;
+}
+
+.grpThemes input[type="radio"]:checked+label {
+    border: var(--border) !important;
+    box-shadow: 0 0 3px var(--clr-custom);
+    background-color: var(--bg-custom) !important;
+    filter: grayscale(0%) !important;
 }

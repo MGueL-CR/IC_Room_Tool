@@ -7,16 +7,18 @@ try {
   const tabs = document.getElementsByClassName('tab');
   /* 
   *      CONFIG & SETTINGS 
-    crearEvento("btnSun", "click", cambiarTema);  
-    crearEvento("btnMoon", "click", cambiarTema);  
+    crearEvento("btnSun", "click", cambiarTema);  y
+    crearEvento("btnMoon", "click", cambiarTema);  y
     crearEvento("btnInitial", "click", establecerIniciales);    
     crearEvento("lstColores", "click", cambiarColor);
-    crearEvento("lstFondos", "click", cambiarFondo);
+    crearEvento("lstFondos", "click", cambiarFondo); y
   */
-  document.querySelector("body").addEventListener("load", settings.obtenerAjustes, true);
+  document.addEventListener("DOMContentLoaded", settings.obtenerAjustes, true);
   utils.crearEvento("btnColapse", "click", settings.mostrarOcultarMenu);
-
-
+  utils.crearEvento("grpThemes", "click", settings.cambiarTema);
+  utils.crearEvento("lstFondos", "click", settings.cambiarFondo);
+  utils.crearEvento("lstColores", "click", settings.cambiarColor);
+  utils.crearEvento("btnInitial", "click", settings.establecerIniciales);
 
   /** *      TAB #1 
     crearEvento("anotaciones", "input", guardarMisNotas);

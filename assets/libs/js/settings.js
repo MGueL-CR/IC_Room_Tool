@@ -6,39 +6,31 @@ export function mostrarOcultarMenu() {
     utils.obtenerObjetoPorID("mainMenu").classList.toggle("show-menu");
 }
 
-function cambiarTema() {
-    let newConfig = getMyConfig();
-
-    newConfig.btnCurrent = this.id;
-    newConfig.typeTheme = this.name;
-
-    if (this.id === "btnSun") {
-        obtenerObjetoPorID("btnMoon").classList.remove("btn-active");
-        obtenerObjetoPorID("btnSun").classList.add("btn-active");
-    } else {
-        obtenerObjetoPorID("btnSun").classList.remove("btn-active");
-        obtenerObjetoPorID("btnMoon").classList.add("btn-active");
+export function cambiarTema(e) {
+    const nvoBoton = e.target;
+    if (nvoBoton.tagName === "INPUT") {
+        const newConfig = config.cargar();
+        newConfig.btnCurrent = nvoBoton.id;
+        newConfig.typeTheme = nvoBoton.value;
+        config.guardar(newConfig);
     }
-
-    document.querySelector("body").className = newConfig.typeTheme;
-    setMyConfig(newConfig);
 }
 
-function cambiarFondo(e) {
+export function cambiarFondo(e) {
     if (e.target.id === "lstFondos") {
         return;
     }
 
-    const myConfig = getMyConfig();
+    const myConfig = config.cargar();
 
-    establecerValorPorID("btnFondoMain", e.target.textContent);
+    utils.establecerValorPorID("btnFondoMain", e.target.textContent);
     cambiarItemSeleccionado(e, "lstFondos", ".opcFondo");
     mostrarFondo(e.target.id);
 
     myConfig.bgCurrent = e.target.id;
     myConfig.divFondo = e.target.textContent;
 
-    setMyConfig(myConfig);
+    config.guardar(myConfig);
 }
 
 function mostrarFondo(pOpcion) {
@@ -76,15 +68,8 @@ function mostrarFondo(pOpcion) {
 export function obtenerAjustes() {
     const configGeneral = config.cargar();
 
-    if (configGeneral !== null) {
-        if (configGeneral.typeTheme) {
-            document.querySelector("body").classList.add(configGeneral.typeTheme);
-            utils.obtenerObjetoPorID(configGeneral.btnCurrent).classList.add("btn-active");
-        }
-        if (
-            configGeneral.clrTheme !== undefined &&
-            configGeneral.bgTheme !== undefined
-        ) {
+    if (configGeneral) {
+        if (configGeneral.clrTheme && configGeneral.bgTheme) {
             establecerTemaColores(configGeneral.clrTheme, configGeneral.bgTheme);
             utils.obtenerObjetoPorID(configGeneral.divColor).classList.add("clr-active");
         }
@@ -96,6 +81,9 @@ export function obtenerAjustes() {
         if (configGeneral.myInitials) {
             utils.establecerValorPorID("userInitials", configGeneral.myInitials);
         }
+        if (configGeneral.typeTheme) {
+            utils.obtenerObjetoPorID(configGeneral.btnCurrent).click();
+        }
     }
 
     utils.establecerValorPorID("nota01", utils.leerMemLocal("nota01"));
@@ -103,14 +91,14 @@ export function obtenerAjustes() {
     utils.establecerValorPorID("nota03", utils.leerMemLocal("nota03"));
 }
 
-function cambiarColor(e) {
+export function cambiarColor(e) {
     if (e.target.id === "lstColores") {
         return;
     }
 
     const myConfig = config.cargar();
 
-    const divColor = obtenerObjetoPorID(e.target.id);
+    const divColor = utils.obtenerObjetoPorID(e.target.id);
     const newColor = divColor.style.getPropertyValue("color");
     const newBackground = divColor.style.getPropertyValue("background-color");
 
@@ -125,21 +113,22 @@ function cambiarColor(e) {
 }
 
 function cambiarItemSeleccionado(pItem, pLista, pClase) {
-    obtenerObjetoPorID(pLista)
+    utils.obtenerObjetoPorID(pLista)
         .querySelectorAll(pClase)
         .forEach((dv) => dv.classList.remove("clr-active"));
     pItem.target.classList.add("clr-active");
 }
 
 function establecerTemaColores(pColor, pBackground) {
-    utils.obtenerObjetoPorID("bodyMain").style.setProperty("--color-theme", pColor);
-    utils.obtenerObjetoPorID("bodyMain").style.setProperty("--bg-theme", pBackground);
+    const thisBody = utils.obtenerObjetoPorID("bodyMain");
+    thisBody.style.setProperty("--color-theme", pColor);
+    thisBody.style.setProperty("--bg-theme", pBackground);
 }
 
-function establecerIniciales() {
+export function establecerIniciales() {
     const myConfig = config.cargar();
 
-    myConfig.myInitials = obtenerValorPorID("userInitials");
+    myConfig.myInitials = utils.obtenerValorPorID("userInitials");
 
     config.guardar(myConfig);
 }

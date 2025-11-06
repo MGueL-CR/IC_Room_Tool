@@ -13,21 +13,21 @@
     <link rel="stylesheet" href="./assets/libs/css/styles.css">
 </head>
 
-<body id="bodyMain" class="thm-default" style="--color-theme: none; --bg-theme: none">
+<body id="bodyMain" style="--color-theme: none; --bg-theme: none">
     <div class="banner">
         <nav id="mainMenu">
             <div class="mnuItem">
                 <span>Tema:</span>
-                <div class="mnuGroups grpThemes">
-                    <input id="btnSun" name="thm-light" type="button" value="☀️"
-                        class="btn no-margin no-border-radius-end" />
-                    <input id="btnMoon" name="thm-dark" type="button" value="🌙"
-                        class="btn no-margin no-border-radius-start" />
+                <div id="grpThemes" class="mnuGroups grpThemes">
+                    <input type="radio" name="rdobtn" id="rdoSun" value="thm-light">
+                    <label class="round-ini" for="rdoSun">☀️</label>
+                    <input type="radio" name="rdobtn" id="rdoMoon" value="thm-dark">
+                    <label class="round-end" for="rdoMoon">🌙</label>
                 </div>
             </div>
             <div class="mnuItem">
                 <span>Fondo:</span>
-                <div class="mnuGroups grpFondos">
+                <div id="grpFondos" class="mnuGroups grpFondos">
                     <input id="btnFondoMain" type="button" value="" class="btn no-margin" />
                     <div id="lstFondos" class="subMenu">
                         <div id="bg00" class="opcFondo">X</div>
