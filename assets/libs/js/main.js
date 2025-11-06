@@ -1,6 +1,7 @@
-import * as settings from "./settings.js";
+import { settings } from "./settings.js";
 import { utils } from "./utils.js";
 import { tab1 } from "./tabs/tab1.js";
+import { tab3 } from "./tabs/tab3.js";
 import { tab5 } from "./tabs/tab5.js";
 
 try {
@@ -9,8 +10,8 @@ try {
   *      CONFIG & SETTINGS 
     crearEvento("btnSun", "click", cambiarTema);  y
     crearEvento("btnMoon", "click", cambiarTema);  y
-    crearEvento("btnInitial", "click", establecerIniciales);    
-    crearEvento("lstColores", "click", cambiarColor);
+    crearEvento("btnInitial", "click", establecerIniciales); y
+    crearEvento("lstColores", "click", cambiarColor); y
     crearEvento("lstFondos", "click", cambiarFondo); y
   */
   document.addEventListener("DOMContentLoaded", settings.obtenerAjustes, true);
@@ -21,7 +22,7 @@ try {
   utils.crearEvento("btnInitial", "click", settings.establecerIniciales);
 
   /** *      TAB #1 
-    crearEvento("anotaciones", "input", guardarMisNotas);
+    crearEvento("anotaciones", "input", guardarMisNotas); y
   */
   tab1.eventosTab1(tabs.item(0));
 
@@ -40,10 +41,12 @@ try {
 
   /* *      TAB #3 
     crearEvento("btnDependencia", "click", generarNotaDependencia);
-    crearEvento("resultado", "focusin", generarNotaDependencia);
-    crearEvento("btnDependencia", "click", copiarNotaDependencia);
+    crearEvento("resultado", "focusin", generarNotaDependencia); y
+    crearEvento("btnDependencia", "click", copiarNotaDependencia); y
   */
 
+  utils.crearEvento("especificas", "input", tab3.generarNotaDependencia);
+  utils.crearEvento("btnDependencia", "click", tab3.copiarNotaDependencia);
 
 
   /* *      TAB #4 

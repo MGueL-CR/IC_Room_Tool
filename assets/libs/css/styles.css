@@ -37,13 +37,10 @@ html {
 }
 
 html:has(#rdoSun:checked) {
-    --cemph: var(--clr-custom);
     --cbg: var(--bg-tab-wht);
     --clink: var(--clr-text2-wht);
-    --clight: var(--bg-custom);
     --cmed: var(--wht-border-inner);
     --border-inner: var(--wht-border-inner);
-    --border: 1px solid var(--clr-custom);
     --bg-main: var(--bg-main-wht);
     --color-text: var(--clr-text-wht);
     --bg-blur8: var(--bg-blur-wht8);
@@ -64,13 +61,10 @@ html:has(#rdoSun:checked) {
 }
 
 html:has(#rdoMoon:checked) {
-    --cemph: var(--clr-custom);
     --cbg: var(--bg-tab-blk);
     --clink: var(--clr-text2-blk);
-    --clight: var(--bg-custom);
     --cmed: var(--blk-border-inner);
     --border-inner: var(--blk-border-inner);
-    --border: 1px solid var(--clr-custom);
     --bg-main: var(--bg-main-blk);
     --color-text: var(--clr-text-blk);
     --bg-blur8: var(--bg-blur-blk8);
@@ -96,20 +90,15 @@ mark {
     color: var(--color-text) !important;
 }
 
-/*
-.tabs .label:hover {
-    background-color: var(--color-theme);
-    color: var(--linea1) !important; 
-}*/
-
-
 body {
-
-    --clr-custom: var(--color-theme);
-    --bg-custom: var(--bg-theme);
     min-height: 100vh;
     padding-top: 1.25rem;
     position: relative;
+    --clr-custom: var(--color-theme);
+    --bg-custom: var(--bg-theme);
+    --cemph: var(--clr-custom);
+    --clight: var(--bg-custom);
+    --border: 1px solid var(--clr-custom);
 }
 
 input[type="checkbox"] {

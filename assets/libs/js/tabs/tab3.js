@@ -1,11 +1,22 @@
-function generarNotaDependencia() {
-    const notaDependencia = `${validarDisponibilidadTotal()} ${agregarseparadores()} ${validarUnidadesCompartidas()} ${validarUnidadesDisponibles()} ${validarIndicaciones()}`;
+import { utils } from "../utils.js";
 
-    establecerValorPorID("resultado", notaDependencia);
+export const tab3 = {
+    generarNotaDependencia(e) {
+        const nvoInput = e.target;
+        if (nvoInput.tagName !== "TEXTAREA") {
+            const notaDependencia = `${validarDisponibilidadTotal()} ${agregarseparadores()} ${validarUnidadesCompartidas()} ${validarUnidadesDisponibles()} ${validarIndicaciones()}`;
+            utils.establecerValorPorID("resultado", notaDependencia);
+        }
+    },
+    copiarNotaDependencia() {
+        if (utils.validarCampoVacio(utils.obtenerValorPorID("listaLotes"))) {
+            utils.copiarContenido(utils.obtenerValorPorID("resultado"));
+        }
+    }
 }
 
 function validarDisponibilidadTotal() {
-    if (obtenerEstadoCheckBox("cantExacta")) {
+    if (utils.obtenerEstadoCheckBox("cantExacta")) {
         return "Para procesar su solicitud se requiere totalmente del retorno de:";
     } else {
         return "Para procesar su solicitud se requiere el retorno de:";
@@ -13,7 +24,7 @@ function validarDisponibilidadTotal() {
 }
 
 function validarUnidadesCompartidas() {
-    if (obtenerEstadoCheckBox("comparteUds")) {
+    if (utils.obtenerEstadoCheckBox("comparteUds")) {
         return " ** (comparten las mismas unidades)";
     } else {
         return "";
@@ -21,7 +32,7 @@ function validarUnidadesCompartidas() {
 }
 
 function validarUnidadesDisponibles() {
-    const cantidad = Number.parseInt(obtenerValorPorID("uDisponibles"));
+    const cantidad = Number.parseInt(utils.obtenerValorPorID("uDisponibles"));
 
     if (cantidad < 1) {
         return "** No se cuentan con unidades disponibles";
@@ -33,7 +44,7 @@ function validarUnidadesDisponibles() {
 }
 
 function validarIndicaciones() {
-    if (obtenerEstadoCheckBox("darIndicacion")) {
+    if (utils.obtenerEstadoCheckBox("darIndicacion")) {
         return "** Favor de indicar como proceder **";
     } else {
         return "**";
@@ -41,11 +52,5 @@ function validarIndicaciones() {
 }
 
 function agregarseparadores() {
-    return obtenerValorPorID("listaLotes").trim().replace(/ /g, " * ");
-}
-
-function copiarNotaDependencia() {
-    if (validarCampoVacio(obtenerValorPorID("listaLotes"))) {
-        copiarContenido(obtenerValorPorID("resultado"));
-    }
+    return utils.obtenerValorPorID("listaLotes").trim().replace(/ /g, " * ");
 }
