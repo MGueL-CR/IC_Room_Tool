@@ -4,6 +4,7 @@ import { tab1 } from "./tabs/tab1.js";
 import { tab3 } from "./tabs/tab3.js";
 import { tab4 } from "./tabs/tab4.js";
 import { tab5 } from "./tabs/tab5.js";
+import { tab6 } from "./tabs/tab6.js";
 
 try {
   const tabs = document.getElementsByClassName('tab');
@@ -83,7 +84,12 @@ try {
     crearEvento("btnSuject", "click", copiarAsunto);  
     crearEvento("btnMail", "click", copiarMensaje);
   */
-
+  utils.crearEvento("btnMaterialOut", "click", tab6.generarComentarioMEP);
+  utils.crearEvento("btnImpMaterial", "click", tab6.generarComentarioImpMaterial);
+  utils.crearEvento("btnProspal", "click", tab6.generarComentarioProspal);
+  utils.crearEvento("btnToMail", "click", tab6.copiarDestinatarios);
+  utils.crearEvento("btnSuject", "click", tab6.copiarAsunto);
+  utils.crearEvento("btnMail", "click", tab6.copiarMensaje);
 
 } catch (err) {
   utils.printError(err);
