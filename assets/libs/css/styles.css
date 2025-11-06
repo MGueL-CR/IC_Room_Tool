@@ -452,17 +452,20 @@ fieldset legend {
 }
 
 .editable {
-    background-color: var(--bg-custom);
-    padding: 6px 4px 3px 4px;
-    border-radius: 6px;
-    outline: none;
-    border-bottom: 2px solid var(--clr-custom);
+    display: inline !important;
+    width: 100px !important;
+    margin: 0% !important;
+    border-color: transparent !important;
+    border-bottom: var(--border) !important;
     text-transform: uppercase;
+    text-align: center;
+    transition: border 250ms ease;
 }
 
 .editable:focus {
-    background-color: var(--bg-custom);
-    border-radius: 6px 6px 0 0;
+    border: var(--border) !important;
+    color: var(--clr-custom);
+    font-weight: bold;
 }
 
 textarea {

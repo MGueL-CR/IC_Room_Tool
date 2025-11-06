@@ -1,25 +1,27 @@
+import { utils } from "../utils.js";
+
 function commentTier2() {
-    obtenerObjetoPorID("nVPO").textContent = obtenerValorPorID("txtActual");
+    utils.obtenerObjetoPorID("nVPO").textContent = utils.obtenerValorPorID("txtActual");
 }
 
 function copiarCommentTier2() {
-    if (validarCampoVacio(obtenerObjetoPorID("nVPO").textContent)) {
-        const contenido = obtenerObjetoPorID("txtTier2").textContent.trim();
+    if (utils.validarCampoVacio(utils.obtenerObjetoPorID("nVPO").textContent)) {
+        const contenido = utils.obtenerObjetoPorID("txtTier2").textContent.trim();
         const sinFormato = eliminarEspacios(contenido);
-        copiarContenido(sinFormato);
+        utils.copiarContenido(sinFormato);
     }
 }
 
-function mostrarContenido(e) {
+export function mostrarContenido(e) {
     if (e.target.tagName == "DIV") {
         return;
     }
 
     let parrafo = "";
     const opciones = {
-        asignado: obtenerValorPorID("txtAsignado"),
-        unidades: obtenerValorPorID("txtUnidades"),
-        otrosLotes: obtenerValorPorID("txtMaterial"),
+        asignado: utils.obtenerValorPorID("txtAsignado"),
+        unidades: utils.obtenerValorPorID("txtUnidades"),
+        otrosLotes: utils.obtenerValorPorID("txtMaterial"),
     };
 
     if (e.target.tagName == "H4") {
@@ -33,7 +35,7 @@ function mostrarContenido(e) {
         .replace("@Asignado", opciones.asignado)
         .replace("@Cant", opciones.unidades)
         .replace("@Lotes", opciones.otrosLotes);
-    establecerValorPorID("txtExcepcion", parrafo);
+    utils.establecerValorPorID("txtExcepcion", parrafo);
 
     document
         .getElementById("lstExcepciones")
@@ -45,16 +47,16 @@ function eliminarEspacios(pValor) {
 }
 
 function copiarComentarioTier2() {
-    const vComentario = obtenerValorPorID("txtExcepcion");
+    const vComentario = utils.obtenerValorPorID("txtExcepcion");
 
-    if (validarCampoVacio(vComentario)) {
-        copiarContenido(vComentario);
+    if (utils.validarCampoVacio(vComentario)) {
+        utils.copiarContenido(vComentario);
     }
 }
 
-function abrirModal(e) {
+export function abrirModal(e) {
     const idModal = e.target.dataset.modal;
-    obtenerObjetoPorID(idModal).showModal();
+    utils.obtenerObjetoPorID(idModal).showModal();
 }
 
 function guardarNuevaExcepcion() {
@@ -63,5 +65,5 @@ function guardarNuevaExcepcion() {
 
 function cerrarModal(e) {
     const idModal = e.target.dataset.modal;
-    obtenerObjetoPorID(idModal).close();
+    utils.obtenerObjetoPorID(idModal).close();
 }

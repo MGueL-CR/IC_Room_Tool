@@ -2,6 +2,7 @@ import { settings } from "./settings.js";
 import { utils } from "./utils.js";
 import { tab1 } from "./tabs/tab1.js";
 import { tab3 } from "./tabs/tab3.js";
+import { mostrarContenido, abrirModal } from "./tabs/tab4.js";
 import { tab5 } from "./tabs/tab5.js";
 
 try {
@@ -52,14 +53,18 @@ try {
   /* *      TAB #4 
     crearEvento("btnTier2", "click", copiarCommentTier2);
     crearEvento("btnContenido", "click", copiarComentarioTier2);
-    crearEvento("lstExcepciones", "click", mostrarContenido);
-    crearEvento("btnAgregar", "click", abrirModal);
-    crearEvento("btnToBoss", "click", abrirModal);
-    crearEvento("btnGuardar", "click", guardarNuevaExcepcion);
+    crearEvento("lstExcepciones", "click", mostrarContenido); y
+    crearEvento("btnAgregar", "click", abrirModal); y
+    crearEvento("btnToBoss", "click", abrirModal); y
+    crearEvento("btnGuardar", "click", guardarNuevaExcepcion); X
     crearEvento("btnCerrar", "click", cerrarModal);
     crearEvento("btnTier2Del", "click", cerrarModal);
   */
-
+  utils.crearEvento("btnAgregar", "click", abrirModal);
+  utils.crearEvento("btnToBoss", "click", abrirModal);
+  utils.crearEvento("lstExcepciones", "click", mostrarContenido);
+  utils.crearEvento("btnTier2", "click", copiarCommentTier2);
+  utils.crearEvento("btnContenido", "click", copiarComentarioTier2);
 
 
   /* *      TAB #5  
