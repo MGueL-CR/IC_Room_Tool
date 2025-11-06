@@ -409,7 +409,7 @@
             <div class="tab">
                 <div class="row">
                     <div class="col">
-                        <div class="row items-row noWrap">
+                        <div id="panelModalTier2" class="row items-row noWrap">
                             <div class="col">
                                 <input id="btnAgregar" type="button" data-modal="modalException" class="btn"
                                     command="showModal" commandfor="modalException" value="Nueva Excepción">
@@ -424,7 +424,7 @@
                                 <form class="card h-a1 bg-blanco borderless">
                                     <div class="row">
                                         <div class="col">
-                                            <div class="card">
+                                            <div id="inputsTier2" class="card">
                                                 <div class="row">
                                                     <div class="col">
                                                         <label for="txtUnidades">Unidades disponibles</label>
@@ -442,6 +442,11 @@
                                                         <label for="txtMaterial">SL/VPO/MRS/MIR</label>
                                                         <input type="text" name="txtMaterial" id="txtMaterial" value=""
                                                             placeholder="GNRSP... SRFAP... CWFAP..." />
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="txtTipoExcep">Tipo de excepcion</label>
+                                                        <input type="text" name="txtTipoExcep" id="txtTipoExcep"
+                                                            value="" placeholder="Seleccione una" />
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -812,7 +817,7 @@
                     <textarea id="txtContenido" name="txtContenido"></textarea>
                 </div>
             </div>
-            <div class="row items-row noWrap">
+            <div id="buttonsExceptions" class="row items-row noWrap">
                 <div class="col">
                     <input type="submit" id="btnGuardar" class="btn btn-main" value="Guardar">
                 </div>
@@ -831,14 +836,15 @@
                     <div class="row">
                         <div class="col">
                             <span id="txtTier2">
-                                Cris, la VPO <input id="nVPO" class="editable" placeholder="J5XXXXXX" value="">
+                                Cris, la VPO <input id="nVPO" name="nVPO" class="editable" placeholder="J5XXXXXX"
+                                    value="">
                                 queda con dependencia al Tier-2.
                             </span>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row items-row noWrap">
+            <div id="buttonsToBoss" class="row items-row noWrap">
                 <div class="col">
                     <input id="btnTier2" class="btn btn-main" type="submit" value="Copiar" />
                 </div>

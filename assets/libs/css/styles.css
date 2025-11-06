@@ -435,7 +435,7 @@ blockquote:before {
     background-color: var(--clr-custom);
     height: 100%;
     z-index: -10;
-    transition: width 0.25s linear 0.150ms;
+    transition: width 750ms ease 0.150ms;
 }
 
 blockquote:hover:before {

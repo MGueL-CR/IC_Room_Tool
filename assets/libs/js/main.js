@@ -2,7 +2,7 @@ import { settings } from "./settings.js";
 import { utils } from "./utils.js";
 import { tab1 } from "./tabs/tab1.js";
 import { tab3 } from "./tabs/tab3.js";
-import { mostrarContenido, abrirModal } from "./tabs/tab4.js";
+import { tab4 } from "./tabs/tab4.js";
 import { tab5 } from "./tabs/tab5.js";
 
 try {
@@ -41,7 +41,7 @@ try {
 
 
   /* *      TAB #3 
-    crearEvento("btnDependencia", "click", generarNotaDependencia);
+    crearEvento("btnDependencia", "click", generarNotaDependencia); X
     crearEvento("resultado", "focusin", generarNotaDependencia); y
     crearEvento("btnDependencia", "click", copiarNotaDependencia); y
   */
@@ -51,20 +51,22 @@ try {
 
 
   /* *      TAB #4 
-    crearEvento("btnTier2", "click", copiarCommentTier2);
-    crearEvento("btnContenido", "click", copiarComentarioTier2);
+    crearEvento("btnTier2", "click", copiarCommentTier2); y
+    crearEvento("btnContenido", "click", copiarComentarioTier2); y
     crearEvento("lstExcepciones", "click", mostrarContenido); y
     crearEvento("btnAgregar", "click", abrirModal); y
     crearEvento("btnToBoss", "click", abrirModal); y
     crearEvento("btnGuardar", "click", guardarNuevaExcepcion); X
-    crearEvento("btnCerrar", "click", cerrarModal);
-    crearEvento("btnTier2Del", "click", cerrarModal);
+    crearEvento("btnCerrar", "click", cerrarModal); y
+    crearEvento("btnTier2Del", "click", cerrarModal); y
   */
-  utils.crearEvento("btnAgregar", "click", abrirModal);
-  utils.crearEvento("btnToBoss", "click", abrirModal);
-  utils.crearEvento("lstExcepciones", "click", mostrarContenido);
-  utils.crearEvento("btnTier2", "click", copiarCommentTier2);
-  utils.crearEvento("btnContenido", "click", copiarComentarioTier2);
+  utils.crearEvento("inputsTier2", "input", tab4.cambiarValores)
+  utils.crearEvento("lstExcepciones", "click", tab4.mostrarContenido);
+  utils.crearEvento("frmToBoss", "submit", tab4.copiarCommentTier2);
+  utils.crearEvento("btnContenido", "click", tab4.copiarComentarioTier2);
+  utils.crearEvento("panelModalTier2", "click", tab4.eventosModal);
+  utils.crearEvento("buttonsExceptions", "click", tab4.eventosModal);
+  utils.crearEvento("buttonsToBoss", "click", tab4.eventosModal);
 
 
   /* *      TAB #5  

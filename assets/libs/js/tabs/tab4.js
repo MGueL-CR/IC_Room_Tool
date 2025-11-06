@@ -1,69 +1,87 @@
 import { utils } from "../utils.js";
 
-function commentTier2() {
-    utils.obtenerObjetoPorID("nVPO").textContent = utils.obtenerValorPorID("txtActual");
-}
+export const tab4 = {
+    copiarCommentTier2(e) {
+        const dtForm = Object.fromEntries(new FormData(e.target));
+        if (utils.validarCampoVacio(dtForm.nVPO)) {
+            const contenido = `Cris, la VPO ${dtForm.nVPO.toUpperCase()} queda con dependencia al Tier-2.`;
+            utils.copiarContenido(contenido);
+        }
+    },
+    cambiarValores(e) {
+        if (e.target.tagName === "INPUT") {
+            console.log(e.target.id);
+            // Continuar aqui...
+        }
+    },
+    mostrarContenido(e) {
+        if (e.target.tagName !== "DIV") {
+            const parrafo = obtenertextoParrafo(e.target);
 
-function copiarCommentTier2() {
-    if (utils.validarCampoVacio(utils.obtenerObjetoPorID("nVPO").textContent)) {
-        const contenido = utils.obtenerObjetoPorID("txtTier2").textContent.trim();
-        const sinFormato = eliminarEspacios(contenido);
-        utils.copiarContenido(sinFormato);
+            const nvoComentario = reemplazarOpciones(parrafo)
+            utils.establecerValorPorID("txtExcepcion", nvoComentario);
+            document
+                .getElementById("lstExcepciones")
+                .parentElement.removeAttribute("open");
+        }
+    },
+    copiarComentarioTier2() {
+        const vComentario = utils.obtenerValorPorID("txtExcepcion");
+
+        if (utils.validarCampoVacio(vComentario)) {
+            utils.copiarContenido(vComentario);
+        }
+    },
+    eventosModal(e) {
+        const nvoBoton = e.target;
+        if (nvoBoton.tagName === "INPUT") {
+            if (nvoBoton.id === "btnAgregar" || nvoBoton.id === "btnToBoss") {
+                abrirModal(nvoBoton);
+            }
+            if (nvoBoton.id === "btnCerrar" || nvoBoton.id === "btnTier2Del") {
+                cerrarModal(nvoBoton);
+            }
+        }
     }
 }
 
-export function mostrarContenido(e) {
-    if (e.target.tagName == "DIV") {
-        return;
+function obtenertextoParrafo(pElemento) {
+    if (pElemento.tagName == "H4") {
+        utils.establecerValorPorID("txtTipoExcep", pElemento.textContent);
+        return eliminarEspacios(pElemento.parentElement.children[2].textContent);
     }
+    if (pElemento.tagName == "BLOCKQUOTE") {
+        utils.establecerValorPorID("txtTipoExcep", pElemento.firstChild.textContent);
+        return eliminarEspacios(pElemento.children[2].textContent);
+    }
+}
 
-    let parrafo = "";
+function reemplazarOpciones(pContenido) {
     const opciones = {
         asignado: utils.obtenerValorPorID("txtAsignado"),
         unidades: utils.obtenerValorPorID("txtUnidades"),
         otrosLotes: utils.obtenerValorPorID("txtMaterial"),
     };
-
-    if (e.target.tagName == "H4") {
-        parrafo = eliminarEspacios(e.target.parentElement.children[2].textContent);
-    }
-    if (e.target.tagName == "BLOCKQUOTE") {
-        parrafo = eliminarEspacios(e.target.children[2].textContent);
-    }
-
-    parrafo = parrafo
+    return pContenido
         .replace("@Asignado", opciones.asignado)
         .replace("@Cant", opciones.unidades)
         .replace("@Lotes", opciones.otrosLotes);
-    utils.establecerValorPorID("txtExcepcion", parrafo);
-
-    document
-        .getElementById("lstExcepciones")
-        .parentElement.removeAttribute("open");
 }
 
 function eliminarEspacios(pValor) {
     return pValor.replace(/\n/g, " ").replace(/  /g, "").trim();
 }
 
-function copiarComentarioTier2() {
-    const vComentario = utils.obtenerValorPorID("txtExcepcion");
-
-    if (utils.validarCampoVacio(vComentario)) {
-        utils.copiarContenido(vComentario);
-    }
+function abrirModal(pBtn) {
+    const idModal = pBtn.dataset.modal;
+    utils.obtenerObjetoPorID(idModal).showModal();
 }
 
-export function abrirModal(e) {
-    const idModal = e.target.dataset.modal;
-    utils.obtenerObjetoPorID(idModal).showModal();
+function cerrarModal(pBtn) {
+    const idModal = pBtn.dataset.modal;
+    utils.obtenerObjetoPorID(idModal).close();
 }
 
 function guardarNuevaExcepcion() {
     // body...
-}
-
-function cerrarModal(e) {
-    const idModal = e.target.dataset.modal;
-    utils.obtenerObjetoPorID(idModal).close();
 }
