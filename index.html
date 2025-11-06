@@ -429,7 +429,7 @@
                                                     <div class="col">
                                                         <label for="txtUnidades">Unidades disponibles</label>
                                                         <input type="number" name="txtUnidades" id="txtUnidades" min="0"
-                                                            value="0" />
+                                                            value="" placeholder="0" />
                                                     </div>
                                                     <div class="col">
                                                         <label for="txtAsignado">Asignado a</label>
@@ -443,20 +443,17 @@
                                                         <input type="text" name="txtMaterial" id="txtMaterial" value=""
                                                             placeholder="GNRSP... SRFAP... CWFAP..." />
                                                     </div>
-                                                    <div class="col">
-                                                        <label for="txtTipoExcep">Tipo de excepcion</label>
-                                                        <input type="text" name="txtTipoExcep" id="txtTipoExcep"
-                                                            value="" placeholder="Seleccione una" />
-                                                    </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col">
+                                                        <label for="txtTipoExcep">Tipo de excepción</label>
                                                         <details class="card enColumna bg-blanco shadows">
                                                             <summary>Excepciones...</summary>
                                                             <div id="lstExcepciones">
                                                                 <div class="row items-row">
                                                                     <div class="col">
-                                                                        <blockquote class="marginles bg-blanco">
+                                                                        <blockquote id="bq01"
+                                                                            class="marginles bg-blanco">
                                                                             <h4>Unidades no disponibles</h4>
                                                                             <hr />
                                                                             <p>
@@ -475,7 +472,8 @@
                                                                         </blockquote>
                                                                     </div>
                                                                     <div class="col">
-                                                                        <blockquote class="marginles bg-blanco">
+                                                                        <blockquote id="bq02"
+                                                                            class="marginles bg-blanco">
                                                                             <h4>Material no disponible</h4>
                                                                             <hr />
                                                                             <p>
@@ -493,7 +491,8 @@
                                                                         </blockquote>
                                                                     </div>
                                                                     <div class="col">
-                                                                        <blockquote class="marginles bg-blanco">
+                                                                        <blockquote id="bq03"
+                                                                            class="marginles bg-blanco">
                                                                             <h4>Material del inventario</h4>
                                                                             <hr />
                                                                             <p>
@@ -510,7 +509,8 @@
                                                                         </blockquote>
                                                                     </div>
                                                                     <div class="col">
-                                                                        <blockquote class="marginles bg-blanco">
+                                                                        <blockquote id="bq04"
+                                                                            class="marginles bg-blanco">
                                                                             <h4>VPO en Piso</h4>
                                                                             <hr />
                                                                             <p>
@@ -523,7 +523,8 @@
                                                                         </blockquote>
                                                                     </div>
                                                                     <div class="col">
-                                                                        <blockquote class="marginles bg-blanco">
+                                                                        <blockquote id="bq05"
+                                                                            class="marginles bg-blanco">
                                                                             <h4>Unidades en Allocate</h4>
                                                                             <hr />
                                                                             <p>
@@ -540,7 +541,8 @@
                                                                         </blockquote>
                                                                     </div>
                                                                     <div class="col">
-                                                                        <blockquote class="marginles bg-blanco">
+                                                                        <blockquote id="bq06"
+                                                                            class="marginles bg-blanco">
                                                                             <h4>Unidades en Shipping</h4>
                                                                             <hr />
                                                                             <p>
@@ -555,7 +557,8 @@
                                                                         </blockquote>
                                                                     </div>
                                                                     <div class="col">
-                                                                        <blockquote class="marginles bg-blanco">
+                                                                        <blockquote id="bq07"
+                                                                            class="marginles bg-blanco">
                                                                             <h4>SL sin recibir (RANs)</h4>
                                                                             <hr />
                                                                             <p>
@@ -569,6 +572,8 @@
                                                                 </div>
                                                             </div>
                                                         </details>
+                                                        <input type="hidden" name="txtTipoExcep" id="txtTipoExcep"
+                                                            value="" placeholder="excepcionID" />
                                                     </div>
                                                 </div>
                                             </div>

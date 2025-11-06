@@ -10,8 +10,12 @@ export const tab4 = {
     },
     cambiarValores(e) {
         if (e.target.tagName === "INPUT") {
-            console.log(e.target.id);
-            // Continuar aqui...
+            const vID = utils.obtenerValorPorID("txtTipoExcep");
+            if (utils.validarCampoVacio(vID)) {
+                const vParrafo = eliminarEspacios(utils.obtenerObjetoPorID(vID).lastElementChild);
+                const vContenido = reemplazarOpciones(vParrafo);
+                utils.establecerValorPorID("txtExcepcion", vContenido);
+            }
         }
     },
     mostrarContenido(e) {
@@ -47,12 +51,12 @@ export const tab4 = {
 
 function obtenertextoParrafo(pElemento) {
     if (pElemento.tagName == "H4") {
-        utils.establecerValorPorID("txtTipoExcep", pElemento.textContent);
-        return eliminarEspacios(pElemento.parentElement.children[2].textContent);
+        utils.establecerValorPorID("txtTipoExcep", pElemento.parentElement.id);
+        return eliminarEspacios(pElemento.parentElement.children[2]);
     }
     if (pElemento.tagName == "BLOCKQUOTE") {
-        utils.establecerValorPorID("txtTipoExcep", pElemento.firstChild.textContent);
-        return eliminarEspacios(pElemento.children[2].textContent);
+        utils.establecerValorPorID("txtTipoExcep", pElemento.id);
+        return eliminarEspacios(pElemento.lastElementChild);
     }
 }
 
@@ -69,7 +73,7 @@ function reemplazarOpciones(pContenido) {
 }
 
 function eliminarEspacios(pValor) {
-    return pValor.replace(/\n/g, " ").replace(/  /g, "").trim();
+    return pValor.textContent.replace(/\n/g, " ").replace(/  /g, "").trim();
 }
 
 function abrirModal(pBtn) {
