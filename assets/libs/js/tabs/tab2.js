@@ -48,25 +48,28 @@ export const tab2 = {
         }
     },
     generarComentarioWO(e) {
-        const txtCopiado = e.target.value.trim().split("\n");
-
-        if (txtCopiado.length <= 1) {
+        if (!e.data || !utils.validarCampoVacio(e.data)) {
             return;
         }
-
-        const masparrafo = txtCopiado[2].split("\t");
-        const comentario = `${txtCopiado[0].trim()} - QTY ${masparrafo[3]} - ${masparrafo[5]
-            }`;
-        asignarValor(document.getElementById("txtNumWO"), txtCopiado[0].trim());
-        asignarValor(document.getElementById("txtQty"), masparrafo[3]);
-        asignarValor(document.getElementById("txtMachine"), masparrafo[5]);
-        asignarValor(document.getElementById("commentWO"), comentario);
+        if (e.target.tagName === "TEXTAREA") {
+            const txtCopiado = e.data.trim().replace(/\n/g, "\t");
+            const vSeparado = txtCopiado.split("\t");
+            const vDatos = {
+                "val1": vSeparado.at(0).trim(),
+                "val2": vSeparado.at(6).trim(),
+                "val3": vSeparado.at(8).trim()
+            };
+            completarCamposWO(vDatos)
+        } else {
+            // Continuar algo...
+            completarCamposWO(vDatos)
+        }
     },
     copiarComentarioWO() {
         const contenido = utils.obtenerValorPorID("commentWO");
         if (utils.validarCampoVacio(contenido)) {
             utils.copiarContenido(contenido);
-        } vvv
+        }
     },
     copiarInfoAdicionalWO() {
         if (utils.validarCampoVacio(utils.obtenerValorPorID("commentWO"))) {
@@ -117,4 +120,12 @@ function asignarValor(pObj, pValor) {
     if (typeof pValor != "undefined") {
         pObj.value = pValor.trim();
     }
+}
+
+function completarCamposWO(pObj) {
+    const comentario = `${pObj.val1} - QTY ${pObj.val2} - ${pObj.val3}`;
+    asignarValor(document.getElementById("txtNumWO"), pObj.val1);
+    asignarValor(document.getElementById("txtQty"), pObj.val2);
+    asignarValor(document.getElementById("txtMachine"), pObj.val3);
+    asignarValor(document.getElementById("commentWO"), comentario);
 }

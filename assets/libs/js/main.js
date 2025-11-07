@@ -40,7 +40,7 @@ try {
   */
 
   utils.crearEvento("textCopied", "input", tab2.generarComentarioWO);
-  utils.crearEvento("btnCopyWOvvv", "click", tab2.copiarComentarioWO);
+  utils.crearEvento("btnCopyWO", "click", tab2.copiarComentarioWO);
   utils.crearEvento("btnImprimirWO", "click", tab2.copiarInfoAdicionalWO);
 
   utils.crearEvento("inputsRANs", "input", tab2.genernarComentarioRAN);
