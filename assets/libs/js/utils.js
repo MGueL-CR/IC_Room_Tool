@@ -33,7 +33,7 @@ export const utils = {
     },
 
     obtenerValorPorID(pID) {
-        return document.getElementById(pID).value;
+        return document.getElementById(pID).value.trim();
     },
 
     obtenerEstadoCheckBox(pID) {

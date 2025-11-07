@@ -169,7 +169,7 @@
                 </div>
             </div>
 
-            <input type="radio" name="tabs" id="tabtwo" />
+            <input type="radio" name="tabs" id="tabtwo" checked="checked" />
             <label class="label bg-blanco" for="tabtwo">Comentarios</label>
             <div class="tab">
                 <div class="row">
@@ -250,13 +250,31 @@
                                             <div class="col">
                                                 <div class="row">
                                                     <div class="col">
+                                                        <label for="txtNumWO">Num. VPO:</label>
+                                                        <input type="text" name="txtNumWO" id="txtNumWO">
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="txtQty">Cantidad:</label>
+                                                        <input type="number" name="txtQty" id="txtQty">
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="txtMachine">Maquina:</label>
+                                                        <input type="text" name="txtMachine" id="txtMachine">
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
                                                         <label for="commentWO">Comentario:</label>
-                                                        <input id="commentWO" name="commentWO" type="text" />
+                                                        <input id="commentWO" name="commentWO" type="text" readonly />
                                                     </div>
                                                 </div>
                                                 <div class="row items-row noWrap">
                                                     <div class="col">
-                                                        <input id="btnCopyMore" class="btn" type="button"
+                                                        <input id="btnCopyWO" class="btn btn-main" type="button"
+                                                            value="Copiar" />
+                                                    </div>
+                                                    <div class="col">
+                                                        <input id="btnImprimirWO" class="btn btn-aux" type="button"
                                                             value="Imprimir" />
                                                     </div>
                                                     <div class="col">
@@ -275,7 +293,7 @@
                                 <details name="generales" class="card bg-opaco shadows">
                                     <summary>Recibos (RANES)</summary>
                                     <form action="#">
-                                        <div class="row">
+                                        <div id="inputsRANs" class="row">
                                             <div class="col">
                                                 <div class="row">
                                                     <div class="col">
@@ -640,7 +658,7 @@
                 </form>
             </div>
 
-            <input type="radio" name="tabs" id="tabsix" checked="checked" />
+            <input type="radio" name="tabs" id="tabsix" />
             <label class="label bg-blanco" for="tabsix">Plantillas Correos</label>
             <div class="tab">
                 <form action="#" class="row">
