@@ -41,7 +41,9 @@ export const utils = {
     },
 
     establecerValorPorID(pID, pNuevoValor) {
-        return (document.getElementById(pID).value = pNuevoValor);
+        if (typeof pValor !== undefined) {
+            document.getElementById(pID).value = pNuevoValor.trim();
+        }
     },
 
     validarCampoVacio(pContenido) {

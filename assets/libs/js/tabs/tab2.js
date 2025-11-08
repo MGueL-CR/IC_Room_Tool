@@ -5,50 +5,28 @@ export const tab2 = {
 
         if (utils.validarCampoVacio(e.target.value)) {
             const contenido = e.target.value.split("\t");
-            if (contenido.length <= 1) {
-                return;
-            }
+            if (contenido.length <= 1) { return; }
 
-            asignarValor(
-                document.getElementById("commenCTR"),
-                `${contenido[0].trim()} ${iniciales}`
-            );
-            asignarValor(document.getElementById("txtOwner"), contenido[8]);
-            asignarValor(document.getElementById("txtLotName"), contenido[9]);
-            asignarValor(document.getElementById("txtPartType"), contenido[10]);
-            asignarValor(document.getElementById("txtUnits"), contenido[11]);
-            asignarValor(document.getElementById("txtQDF"), contenido[14]);
-            asignarValor(document.getElementById("txtLocation"), "ACTIVE: RAW");
+            utils.establecerValorPorID("commenCTR", `${contenido.at(0).trim()} ${iniciales}`);
+            utils.establecerValorPorID("txtOwner", contenido.at(8));
+            utils.establecerValorPorID("txtLotName", contenido.at(9));
+            utils.establecerValorPorID("txtPartType", contenido.at(10));
+            utils.establecerValorPorID("txtUnits", contenido.at(11));
+            utils.establecerValorPorID("txtQDF", contenido.at(14));
+            utils.establecerValorPorID("txtLocation", "ACTIVE: RAW");
         }
     },
     copiarValoresCTR(e) {
         const input = e.target;
-
         if (input.tagName == "INPUT") {
-            let vContenido = input.value;
-
-            if (input.id == "txtOwner") {
-                if (!vContenido.includes(",")) {
-                    nvoArray = vContenido.split(" ");
-                    vContenido = `${nvoArray[1]} ${nvoArray[2]}, ${nvoArray[0]}`;
-                }
-            }
-
-            if (input.id == "txtPartType") {
-                vContenido = input.value.split(" ")[0].substring(2);
-            }
-
-            if (input.id == "txtQDF") {
-                vContenido = input.value.split(" ")[0].substring(0, 4);
-            }
-
-            if (validarCampoVacio(vContenido)) {
-                copiarContenido(vContenido);
+            if (utils.validarCampoVacio(input.value)) {
+                const vContenido = aplicarFormatosEspeciales(input.id, input.value);
+                utils.copiarContenido(vContenido);
             }
         }
     },
     generarComentarioWO(e) {
-        if (!e.data || !utils.validarCampoVacio(e.data)) {
+        if (!utils.validarCampoVacio(e.target.value)) {
             return;
         }
         if (e.target.tagName === "TEXTAREA") {
@@ -57,12 +35,18 @@ export const tab2 = {
             const vDatos = {
                 "val1": vSeparado.at(0).trim(),
                 "val2": vSeparado.at(6).trim(),
-                "val3": vSeparado.at(8).trim()
+                "val3": vSeparado.at(8).trim(),
+                "val4": e.target.tagName
             };
             completarCamposWO(vDatos)
         } else {
-            // Continuar algo...
-            completarCamposWO(vDatos)
+            const vInputs = {
+                "val1": utils.obtenerValorPorID("txtNumWO"),
+                "val2": utils.obtenerValorPorID("txtQty"),
+                "val3": utils.obtenerValorPorID("txtMachine"),
+                "val4": e.target.tagName
+            };
+            completarCamposWO(vInputs)
         }
     },
     copiarComentarioWO() {
@@ -81,7 +65,7 @@ export const tab2 = {
                 JSON.stringify({
                     numero: comentarioWO[0].trim(),
                     cantidad: comentarioWO[1].trim(),
-                    maquina: comentarioWO[2].trim(),
+                    maquina: comentarioWO[2].trim()
                 })
             );
             utils.abrirVortex(nvaVPO);
@@ -116,16 +100,31 @@ export const tab2 = {
     }
 }
 
-function asignarValor(pObj, pValor) {
-    if (typeof pValor != "undefined") {
-        pObj.value = pValor.trim();
-    }
-}
 
 function completarCamposWO(pObj) {
     const comentario = `${pObj.val1} - QTY ${pObj.val2} - ${pObj.val3}`;
-    asignarValor(document.getElementById("txtNumWO"), pObj.val1);
-    asignarValor(document.getElementById("txtQty"), pObj.val2);
-    asignarValor(document.getElementById("txtMachine"), pObj.val3);
-    asignarValor(document.getElementById("commentWO"), comentario);
+    if (pObj.val4 !== "INPUT") {
+        utils.establecerValorPorID("txtNumWO", pObj.val1);
+        utils.establecerValorPorID("txtQty", pObj.val2);
+        utils.establecerValorPorID("txtMachine", pObj.val3);
+    }
+    utils.establecerValorPorID("commentWO", comentario);
+}
+
+function aplicarFormatosEspeciales(pID, pValor) {
+    switch (pID) {
+        case "txtOwner":
+            if (pValor.includes(",")) {
+                return pValor;
+            } else {
+                const nvoArray = pValor.split(" ");
+                return `${nvoArray[1]} ${nvoArray[2]}, ${nvoArray[0]}`;
+            }
+        case "txtPartType":
+            return pValor.split(" ").at(0).substring(2);
+        case "txtQDF":
+            return pValor.substring(0, 4);
+        default:
+            return pValor;
+    }
 }

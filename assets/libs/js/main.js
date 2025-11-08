@@ -34,12 +34,13 @@ try {
     crearEvento("boxCRT", "click", copiarValoresCTR);
     crearEvento("ranComment", "click", genernarComentarioRAN);  y
     crearEvento("btnRan", "click", copiarCommentRAN); y
-    crearEvento("textCopied", "input", generarComentarioWO);
-    crearEvento("commentWO", "click", copiarComentarioWO);
-    crearEvento("btnCopyMore", "click", copiarInfoAdicionalWO);
+    crearEvento("textCopied", "input", generarComentarioWO);y 
+    crearEvento("commentWO", "click", copiarComentarioWO); y
+    crearEvento("btnCopyMore", "click", copiarInfoAdicionalWO); y
   */
-
-  utils.crearEvento("textCopied", "input", tab2.generarComentarioWO);
+  utils.crearEvento("textCopiedCRT", "input", tab2.generarComentarioCRAT);
+  utils.crearEvento("inputsCRT", "click", tab2.copiarValoresCTR);
+  utils.crearEvento("inputsWO", "input", tab2.generarComentarioWO);
   utils.crearEvento("btnCopyWO", "click", tab2.copiarComentarioWO);
   utils.crearEvento("btnImprimirWO", "click", tab2.copiarInfoAdicionalWO);
 

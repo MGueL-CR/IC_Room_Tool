@@ -195,15 +195,16 @@
                                                 <div class="row mt-1">
                                                     <div class="col">
                                                         <label for="txtLocation">Location:</label>
-                                                        <input id="txtLocation" name="txtLocation" type="text" />
+                                                        <input id="txtLocation" name="txtLocation" type="text"
+                                                            readonly />
                                                     </div>
                                                     <div class="col">
                                                         <label for="txtUnits">Units:</label>
-                                                        <input id="txtUnits" name="txtUnits" type="text" />
+                                                        <input id="txtUnits" name="txtUnits" type="text" readonly />
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div id="boxCRT" class="col">
+                                            <div id="inputsCRT" class="col">
                                                 <div class="row">
                                                     <div class="col">
                                                         <label for="txtOwner">Owner:</label>
@@ -241,7 +242,7 @@
                                 <details name="generales" class="card bg-opaco shadows">
                                     <summary>Zero Quantity...</summary>
                                     <form action="#">
-                                        <div class="row">
+                                        <div id="inputsWO" class="row">
                                             <div class="col h-a1">
                                                 <label for="textCopied">Texto de la Fila:</label>
                                                 <textarea name="textCopied" id="textCopied" class="autoresize"
@@ -251,18 +252,19 @@
                                                 <div class="row">
                                                     <div class="col">
                                                         <label for="txtNumWO">Num. VPO:</label>
-                                                        <input type="text" name="txtNumWO" id="txtNumWO">
+                                                        <input type="text" name="txtNumWO" id="txtNumWO" class="m-0">
                                                     </div>
                                                     <div class="col">
                                                         <label for="txtQty">Cantidad:</label>
-                                                        <input type="number" name="txtQty" id="txtQty">
+                                                        <input type="number" name="txtQty" id="txtQty" class="m-0">
                                                     </div>
-                                                    <div class="col">
+                                                    <div class=" col">
                                                         <label for="txtMachine">Maquina:</label>
-                                                        <input type="text" name="txtMachine" id="txtMachine">
+                                                        <input type="text" name="txtMachine" id="txtMachine"
+                                                            class="m-0">
                                                     </div>
                                                 </div>
-                                                <div class="row">
+                                                <div class=" row">
                                                     <div class="col">
                                                         <label for="commentWO">Comentario:</label>
                                                         <input id="commentWO" name="commentWO" type="text" readonly />
@@ -312,8 +314,8 @@
                                                 <div class="row">
                                                     <div class="col">
                                                         <label for="ranLocation">HVI Location:</label>
-                                                        <input id="ranLocation" name="ranLocation" type="text" readonly
-                                                            disabled />
+                                                        <input id="ranLocation" name="ranLocation" type="text"
+                                                            readonly />
                                                     </div>
                                                 </div>
                                                 <div class="row">
