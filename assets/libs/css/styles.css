@@ -323,6 +323,11 @@ input[type="checkbox"] {
     grid-template-rows: auto 1fr;
 }
 
+.h-aa1 {
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+}
+
 .h100 {
     height: 100%;
 }
@@ -817,6 +822,10 @@ nav {
 
     .selfCenter {
         place-self: unset;
+    }
+
+    .mb-0 {
+        margin-bottom: 0 !important;
     }
 }
 

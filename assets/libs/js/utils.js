@@ -41,7 +41,7 @@ export const utils = {
     },
 
     establecerValorPorID(pID, pNuevoValor) {
-        if (typeof pValor !== undefined) {
+        if (typeof pNuevoValor !== undefined && pNuevoValor !== null) {
             document.getElementById(pID).value = pNuevoValor.trim();
         }
     },

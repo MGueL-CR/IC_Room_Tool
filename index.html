@@ -169,7 +169,7 @@
                 </div>
             </div>
 
-            <input type="radio" name="tabs" id="tabtwo" checked="checked" />
+            <input type="radio" name="tabs" id="tabtwo" />
             <label class="label bg-blanco" for="tabtwo">Comentarios</label>
             <div class="tab">
                 <div class="row">
@@ -660,7 +660,7 @@
                 </form>
             </div>
 
-            <input type="radio" name="tabs" id="tabsix" />
+            <input type="radio" name="tabs" id="tabsix" checked="checked" />
             <label class="label bg-blanco" for="tabsix">Plantillas Correos</label>
             <div class="tab">
                 <form action="#" class="row">
@@ -772,54 +772,63 @@
                     </div>
 
                     <div class="col h-all">
-                        <div class="card h-a1a borderless">
-                            <div class="row">
-                                <div class="col">
-                                    <div class="row pos-relativo">
-                                        <div class="col pos-absoluto corner-tr">
-                                            <input id="btnToMail" type="button" value="Copiar" class="btn btn-aux" />
+                        <div class="card h-aa1 m-0 borderless">
+                            <fieldset class="m-0">
+                                <legend>Para:</legend>
+                                <div class="row m-0">
+                                    <div class="col p-0">
+                                        <div id="lstDestinatarios" class="destinatarios">
+                                            <span title="mpq.crvle.cws@intel.com" class="bg-blanco">MPQ CRVLE
+                                                CWs</span>
+                                            <span title="mpq.crvle.ic.tier2@intel.com" class="bg-blanco">MPQ
+                                                CRVLE
+                                                IC Tier2</span>
+                                            <span title="crvc-ic@intel.com" class="bg-blanco">CRVC-IC </span>
+                                            <span title="mpq.crvle.ops.execution.leads@intel.com" class="bg-blanco">
+                                                MPQ CRVLE OPS Execution
+                                                Leads</span>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <label for="btnToMail">Para:</label>
-                                            <div id="lstDestinatarios" class="destinatarios mt-1">
-                                                <span title="mpq.crvle.cws@intel.com" class="bg-blanco">MPQ CRVLE
-                                                    CWs</span>
-                                                <span title="mpq.crvle.ic.tier2@intel.com" class="bg-blanco">MPQ CRVLE
-                                                    IC Tier2</span>
-                                                <span title="crvc-ic@intel.com" class="bg-blanco">CRVC-IC </span>
-                                                <span title="mpq.crvle.ops.execution.leads@intel.com" class="bg-blanco">
-                                                    MPQ CRVLE OPS Execution
-                                                    Leads</span>
-                                            </div>
-                                        </div>
+
+                                </div>
+                                <div class="row items-row noWrap">
+                                    <div class="col">
+                                        <input id="btnAddMail" type="button" value="Agregar" class="btn btn-aux mb-0" />
                                     </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <label for="suject">Asunto:</label>
-                                            <input name="suject" id="suject" type="text" readonly />
-                                        </div>
-                                        <div class="col-4 button-center">
-                                            <input id="btnSuject" type="button" value="Copiar" class="btn btn-aux" />
-                                        </div>
+                                    <div class="col">
+                                        <input id="btnToMail" type="button" value="Copiar" class="btn btn-aux mb-0" />
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col h-a1">
-                                    <label for="suject">Mensaje:</label>
-                                    <textarea name="textMail" id="textMail" class="autoresize" readonly></textarea>
+                            </fieldset>
+                            <fieldset>
+                                <legend>Asunto:</legend>
+                                <div class="row">
+                                    <div class="col">
+                                        <input name="suject" id="suject" type="text" class="m-0" placeholder="Asunto..."
+                                            readonly />
+                                    </div>
+                                    <div class="col-4">
+                                        <input id="btnSuject" type="button" value="Copiar" class="btn btn-aux" />
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row mb-1 items-row noWrap">
-                                <div class="col">
-                                    <input id="btnMail" type="button" value="Copiar" class="btn btn-main" />
+                            </fieldset>
+                            <fieldset class="m-0 h-1a">
+                                <legend>Mensaje:</legend>
+                                <div class="row">
+                                    <div class="col h-all">
+                                        <textarea name="textMail" id="textMail" class="autoresize"
+                                            placeholder="Mensaje..." readonly></textarea>
+                                    </div>
                                 </div>
-                                <div class="col">
-                                    <input id="btnReset" type="reset" value="Borrar" class="btn" />
+                                <div class="row items-row noWrap">
+                                    <div class="col">
+                                        <input id="btnMail" type="button" value="Copiar" class="btn btn-main" />
+                                    </div>
+                                    <div class="col">
+                                        <input id="btnReset" type="reset" value="Borrar" class="btn" />
+                                    </div>
                                 </div>
-                            </div>
+                            </fieldset>
                         </div>
                     </div>
                 </form>
