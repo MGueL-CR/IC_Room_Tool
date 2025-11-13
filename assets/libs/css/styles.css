@@ -858,6 +858,10 @@ nav {
     }
 }
 
+.destinatarios .contacto span:first-child {
+    font-size: small;
+}
+
 .destinatarios .contacto span:last-child {
     position: absolute;
     right: -5px;
@@ -867,11 +871,11 @@ nav {
     border-radius: 6px;
     opacity: 0;
     cursor: pointer;
-    transition: all 500ms ease;
+    transition: all 350ms ease;
 
     &:hover {
         background-color: var(--bg-main);
-        box-shadow: 0 0 64px 1px var(--clr-custom), 0 0 32px 1px var(--clr-custom), 0 0 16px 0 var(--clr-custom);
+        box-shadow: 0 0 64px 3px var(--clr-custom), 0 0 32px 2px var(--clr-custom), 0 0 16px 1px var(--clr-custom);
     }
 }
 

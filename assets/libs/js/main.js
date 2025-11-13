@@ -92,7 +92,11 @@ try {
   utils.crearEvento("btnMaterialOut", "click", tab6.generarComentarioMEP);
   utils.crearEvento("btnImpMaterial", "click", tab6.generarComentarioImpMaterial);
   utils.crearEvento("btnProspal", "click", tab6.generarComentarioProspal);
-  utils.crearEvento("btnToMail", "click", tab6.copiarDestinatarios);
+  utils.crearEvento("btnCopyContacts", "click", tab6.copiarDestinatarios);
+  utils.crearEvento("btnAddContact", "click", tab6.usarModal);
+  utils.crearEvento("btnCerrarDest", "click", tab6.usarModal);
+  utils.crearEvento("frmDestinatario", "submit", tab6.insertarContacto);
+  utils.crearEvento("lstDestinatarios", "click", tab6.eliminarContacto);
   utils.crearEvento("btnSuject", "click", tab6.copiarAsunto);
   utils.crearEvento("btnMail", "click", tab6.copiarMensaje);
 

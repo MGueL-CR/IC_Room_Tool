@@ -778,48 +778,20 @@
                                 <div class="row m-0">
                                     <div class="col p-0">
                                         <div id="lstDestinatarios" class="destinatarios">
-                                            <div class="contacto  pos-relativo">
-                                                <span title="mpq.crvle.cws@intel.com" class="bg-blanco">MPQ
-                                                    CRVLE CWs
-                                                </span>
-                                                <span class="material-symbols-outlined">
-                                                    close_small
-                                                </span>
-                                            </div>
-                                            <div class="contacto pos-relativo">
-                                                <span title="mpq.crvle.ic.tier2@intel.com" class="bg-blanco">MPQ CRVLE
-                                                    IC Tier2
-                                                </span>
-                                                <span class="material-symbols-outlined">
-                                                    close_small
-                                                </span>
-                                            </div>
-                                            <div class="contacto pos-relativo">
-                                                <span title="crvc-ic@intel.com" class="bg-blanco">
-                                                    CRVC-IC
-                                                </span>
-                                                <span class="material-symbols-outlined">
-                                                    close_small
-                                                </span>
-                                            </div>
-                                            <div class="contacto pos-relativo">
-                                                <span title="mpq.crvle.ops.execution.leads@intel.com" class="bg-blanco">
-                                                    MPQ CRVLE OPS Execution Leads
-                                                </span>
-                                                <span class="material-symbols-outlined">
-                                                    close_small
-                                                </span>
-                                            </div>
+
                                         </div>
                                     </div>
 
                                 </div>
                                 <div class="row items-row noWrap">
                                     <div class="col">
-                                        <input id="btnAddMail" type="button" value="Agregar" class="btn btn-aux mb-0" />
+                                        <input id="btnAddContact" type="button" value="Agregar" class="btn btn-aux mb-0"
+                                            command="showModal" data-modal="modalDestinatario"
+                                            commandfor="modalDestinatario" />
                                     </div>
                                     <div class="col">
-                                        <input id="btnToMail" type="button" value="Copiar" class="btn btn-aux mb-0" />
+                                        <input id="btnCopyContacts" type="button" value="Copiar"
+                                            class="btn btn-aux mb-0" />
                                     </div>
                                 </div>
                             </fieldset>

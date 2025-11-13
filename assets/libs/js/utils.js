@@ -79,5 +79,15 @@ export const utils = {
             `https://vortexreports.intel.com/Reports/Card/RunCardFilter.aspx?obj=${pValor}`,
             "_blank"
         );
+    },
+
+    abrirModal(pBtn) {
+        const idModal = pBtn.dataset.modal;
+        utils.obtenerObjetoPorID(idModal).showModal();
+    },
+
+    cerrarModal(pBtn) {
+        const idModal = pBtn.dataset.modal;
+        utils.obtenerObjetoPorID(idModal).close();
     }
 }

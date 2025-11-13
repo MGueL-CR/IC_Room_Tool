@@ -1,13 +1,43 @@
 import { utils } from "../utils.js";
+import { nuevoContacto } from "../components.js";
 
 export const tab6 = {
+    usarModal(e) {
+        const nvoBoton = e.target;
+        if (nvoBoton.id === "btnAddContact") {
+            utils.abrirModal(nvoBoton);
+        }
+        if (nvoBoton.id === "btnCerrarDest") {
+            utils.cerrarModal(nvoBoton);
+        }
+    },
+    insertarContacto(e) {
+        const data = Object.fromEntries(new FormData(e.target));
+
+        if (
+            utils.validarCampoVacio(data.txtCorreoDest) ||
+            utils.validarCampoVacio(data.txtNombDest)
+        ) {
+            agregarEnLaLista(data);
+            utils.obtenerObjetoPorID("lstDestinatarios").appendChild(nuevoContacto(data));
+            e.target.reset();
+        }
+    },
+    eliminarContacto(e) {
+        const nvoItem = e.target;
+        if (nvoItem.className.includes("symbols")) {
+            const padre = nvoItem.parentElement;
+            eliminarDeLaLista(padre)
+            utils.obtenerObjetoPorID("lstDestinatarios").removeChild(padre);
+        }
+    },
     copiarDestinatarios() {
         const listaDestinatarios = utils.obtenerObjetoPorID("lstDestinatarios").children;
 
         const nvaLista = Array.from(listaDestinatarios);
 
         const vDestinatarios = nvaLista
-            .map(x => x.title).join("; ")
+            .map(x => x.firstElementChild.title).join("; ")
 
         if (utils.validarCampoVacio(vDestinatarios)) {
             utils.copiarContenido(vDestinatarios);
@@ -60,4 +90,22 @@ export const tab6 = {
         utils.establecerValorPorID("suject", asuntoFinal);
         utils.establecerValorPorID("textMail", mensajeFinal);
     }
+}
+
+function agregarEnLaLista(pData) {
+    const nvaList = utils.leerMemLocal("lstDestinatarios");
+    if (nvaList) {
+        const lstDestinatarios = JSON.parse(nvaList);
+        lstDestinatarios.push(pData);
+        utils.guardarMemLocal("lstDestinatarios", JSON.stringify(lstDestinatarios));
+    } else {
+        utils.guardarMemLocal("lstDestinatarios", JSON.stringify([pData]));
+    }
+}
+
+function eliminarDeLaLista(pPadre) {
+    const lstContactos = utils.leerMemLocal("lstDestinatarios");
+    const vCorreo = pPadre.firstElementChild.title;
+    const nvaLista = JSON.parse(lstContactos).filter(x => x.txtCorreoDest !== vCorreo);
+    utils.guardarMemLocal("lstDestinatarios", JSON.stringify(nvaLista));
 }

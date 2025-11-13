@@ -40,10 +40,10 @@ export const tab4 = {
         const nvoBoton = e.target;
         if (nvoBoton.tagName === "INPUT") {
             if (nvoBoton.id === "btnAgregar" || nvoBoton.id === "btnToBoss") {
-                abrirModal(nvoBoton);
+                utils.abrirModal(nvoBoton);
             }
             if (nvoBoton.id === "btnCerrar" || nvoBoton.id === "btnTier2Del") {
-                cerrarModal(nvoBoton);
+                utils.cerrarModal(nvoBoton);
             }
         }
     }
@@ -74,16 +74,6 @@ function reemplazarOpciones(pContenido) {
 
 function eliminarEspacios(pValor) {
     return pValor.textContent.replace(/\n/g, " ").replace(/  /g, "").trim();
-}
-
-function abrirModal(pBtn) {
-    const idModal = pBtn.dataset.modal;
-    utils.obtenerObjetoPorID(idModal).showModal();
-}
-
-function cerrarModal(pBtn) {
-    const idModal = pBtn.dataset.modal;
-    utils.obtenerObjetoPorID(idModal).close();
 }
 
 function guardarNuevaExcepcion() {
