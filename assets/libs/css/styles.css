@@ -836,20 +836,46 @@ nav {
     gap: 0.25rem;
 }
 
-.destinatarios span {
+.destinatarios .contacto {
     border: 1px solid var(--bg-custom) !important;
     text-wrap: nowrap;
     padding: 2px 10px;
     border-radius: 10px;
+    overflow: hidden;
 }
 
-.destinatarios span:hover {
+.destinatarios .contacto:hover {
     border: 1px solid var(--bg-custom) !important;
     background-color: var(--bg-custom) !important;
+
+    & span:first-child {
+        color: var(--clr-custom);
+    }
+
+    & span:last-child {
+        opacity: 1;
+        transform: translateX(-9px);
+    }
 }
 
+.destinatarios .contacto span:last-child {
+    position: absolute;
+    right: -5px;
+    place-self: center;
+    font-size: large;
+    background-color: var(--clr-custom);
+    border-radius: 6px;
+    opacity: 0;
+    cursor: pointer;
+    transition: all 500ms ease;
 
-.chkTipos {
+    &:hover {
+        background-color: var(--bg-main);
+        box-shadow: 0 0 64px 1px var(--clr-custom), 0 0 32px 1px var(--clr-custom), 0 0 16px 0 var(--clr-custom);
+    }
+}
+
+.destinatarios .contacto .chkTipos {
     display: flex;
     flex-wrap: wrap;
     justify-content: start;

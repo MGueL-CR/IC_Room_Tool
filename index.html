@@ -778,15 +778,38 @@
                                 <div class="row m-0">
                                     <div class="col p-0">
                                         <div id="lstDestinatarios" class="destinatarios">
-                                            <span title="mpq.crvle.cws@intel.com" class="bg-blanco">MPQ CRVLE
-                                                CWs</span>
-                                            <span title="mpq.crvle.ic.tier2@intel.com" class="bg-blanco">MPQ
-                                                CRVLE
-                                                IC Tier2</span>
-                                            <span title="crvc-ic@intel.com" class="bg-blanco">CRVC-IC </span>
-                                            <span title="mpq.crvle.ops.execution.leads@intel.com" class="bg-blanco">
-                                                MPQ CRVLE OPS Execution
-                                                Leads</span>
+                                            <div class="contacto  pos-relativo">
+                                                <span title="mpq.crvle.cws@intel.com" class="bg-blanco">MPQ
+                                                    CRVLE CWs
+                                                </span>
+                                                <span class="material-symbols-outlined">
+                                                    close_small
+                                                </span>
+                                            </div>
+                                            <div class="contacto pos-relativo">
+                                                <span title="mpq.crvle.ic.tier2@intel.com" class="bg-blanco">MPQ CRVLE
+                                                    IC Tier2
+                                                </span>
+                                                <span class="material-symbols-outlined">
+                                                    close_small
+                                                </span>
+                                            </div>
+                                            <div class="contacto pos-relativo">
+                                                <span title="crvc-ic@intel.com" class="bg-blanco">
+                                                    CRVC-IC
+                                                </span>
+                                                <span class="material-symbols-outlined">
+                                                    close_small
+                                                </span>
+                                            </div>
+                                            <div class="contacto pos-relativo">
+                                                <span title="mpq.crvle.ops.execution.leads@intel.com" class="bg-blanco">
+                                                    MPQ CRVLE OPS Execution Leads
+                                                </span>
+                                                <span class="material-symbols-outlined">
+                                                    close_small
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -884,6 +907,36 @@
                 </div>
                 <div class="col">
                     <input id="btnTier2Del" class="btn warn" type="reset" value="Cerrar" data-modal="modalToBoss" />
+                </div>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog id="modalDestinatario" class="borderless radius dialogo bg-none shadows">
+        <form id="frmDestinatario" method="dialog" class="card bg-blanco m-0">
+            <p>Agregar destinatario</p>
+            <div class="row">
+                <div class="col">
+                    <label for="txtNombDest">Nombre:</label>
+                    <input type="text" name="txtNombDest" id="txtNombDest" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="txtCorreoDest">Correo:</label>
+                    <input type="text" name="txtCorreoDest" id="txtCorreoDest" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button type="submit" id="btnGuardarDest" class="btn btn-main">
+                        Guardar
+                    </button>
+                </div>
+                <div class="col">
+                    <button type="reset" id="btnCerrarDest" class="btn btn-aux" data-modal="modalDestinatario">
+                        Cerrar
+                    </button>
                 </div>
             </div>
         </form>
