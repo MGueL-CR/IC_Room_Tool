@@ -349,7 +349,7 @@
                 </div>
             </div>
 
-            <input type="radio" name="tabs" id="tabthree" />
+            <input type="radio" name="tabs" id="tabthree" checked="checked" />
             <label class="label bg-blanco" for="tabthree">Dependencias</label>
             <div class="tab">
                 <div class="row">
@@ -359,17 +359,18 @@
                                 <div class="col">
                                     <div class="row">
                                         <div class="col">
+                                            <label for="listaLotes">Asignado a:</label>
+                                            <textarea class="h-input" name="listaLotes" id="listaLotes"
+                                                placeholder="J60123... MRS123... MIR123..."></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
                                             <label for="uDisponibles">Unidades Disponibles</label>
                                             <input type="number" value="0" min="0" max="1500" name="uDisponibles"
                                                 id="uDisponibles" />
                                         </div>
                                         <div class="col"></div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <label for="listaLotes">Lotes:</label>
-                                            <input name="listaLotes" id="listaLotes" />
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="col">
@@ -445,25 +446,6 @@
                                     <div class="row">
                                         <div class="col">
                                             <div id="inputsTier2" class="card">
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <label for="txtUnidades">Unidades disponibles</label>
-                                                        <input type="number" name="txtUnidades" id="txtUnidades" min="0"
-                                                            value="" placeholder="0" />
-                                                    </div>
-                                                    <div class="col">
-                                                        <label for="txtAsignado">Asignado a</label>
-                                                        <input type="text" name="txtAsignado" id="txtAsignado" value=""
-                                                            placeholder="J5X... MRS9XX... MIR13..." />
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <label for="txtMaterial">SL/VPO/MRS/MIR</label>
-                                                        <input type="text" name="txtMaterial" id="txtMaterial" value=""
-                                                            placeholder="GNRSP... SRFAP... CWFAP..." />
-                                                    </div>
-                                                </div>
                                                 <div class="row">
                                                     <div class="col">
                                                         <label for="txtTipoExcep">Tipo de excepción</label>
@@ -596,6 +578,25 @@
                                                             value="" placeholder="excepcionID" />
                                                     </div>
                                                 </div>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <label for="txtUnidades">Unidades disponibles</label>
+                                                        <input type="number" name="txtUnidades" id="txtUnidades" min="0"
+                                                            value="" placeholder="0" />
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="txtAsignado">Asignado a</label>
+                                                        <input type="text" name="txtAsignado" id="txtAsignado" value=""
+                                                            placeholder="J5X... MRS9XX... MIR13..." />
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <label for="txtMaterial">SL/VPO/MRS/MIR</label>
+                                                        <input type="text" name="txtMaterial" id="txtMaterial" value=""
+                                                            placeholder="GNRSP... SRFAP... CWFAP..." />
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -660,7 +661,7 @@
                 </form>
             </div>
 
-            <input type="radio" name="tabs" id="tabsix" checked="checked" />
+            <input type="radio" name="tabs" id="tabsix" />
             <label class="label bg-blanco" for="tabsix">Plantillas Correos</label>
             <div class="tab">
                 <form action="#" class="row">

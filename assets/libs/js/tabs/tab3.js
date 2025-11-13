@@ -3,7 +3,7 @@ import { utils } from "../utils.js";
 export const tab3 = {
     generarNotaDependencia(e) {
         const nvoInput = e.target;
-        if (nvoInput.tagName !== "TEXTAREA") {
+        if (nvoInput.id !== "resultado") {
             const notaDependencia = `${validarDisponibilidadTotal()} ${agregarseparadores()} ${validarUnidadesCompartidas()} ${validarUnidadesDisponibles()} ${validarIndicaciones()}`;
             utils.establecerValorPorID("resultado", notaDependencia);
         }

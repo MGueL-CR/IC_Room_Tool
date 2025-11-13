@@ -336,6 +336,11 @@ input[type="checkbox"] {
     height: 80%;
 }
 
+.h-input {
+    height: fit-content;
+    min-height: 2rem !important;
+}
+
 .w100 {
     width: 100%;
 }
@@ -879,7 +884,7 @@ nav {
     }
 }
 
-.destinatarios .contacto .chkTipos {
+.chkTipos {
     display: flex;
     flex-wrap: wrap;
     justify-content: start;
