@@ -6,6 +6,7 @@ export const tab4 = {
         if (utils.validarCampoVacio(dtForm.nVPO)) {
             const contenido = `Cris, la VPO ${dtForm.nVPO.toUpperCase()} queda con dependencia al Tier-2.`;
             utils.copiarContenido(contenido);
+            e.target.reset()
         }
     },
     cambiarValores(e) {
