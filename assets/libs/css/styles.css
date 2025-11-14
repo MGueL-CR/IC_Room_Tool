@@ -858,8 +858,8 @@ nav {
     }
 
     & span:last-child {
-        opacity: 1;
-        transform: translateX(-9px);
+        background-color: var(--clr-custom);
+        transform: translateX(-24px);
     }
 }
 
@@ -869,14 +869,13 @@ nav {
 
 .destinatarios .contacto span:last-child {
     position: absolute;
-    right: -5px;
+    right: -20px;
     place-self: center;
     font-size: large;
-    background-color: var(--clr-custom);
+    background-color: var(--bg-main);
     border-radius: 6px;
-    opacity: 0;
     cursor: pointer;
-    transition: all 350ms ease;
+    transition: all 300ms ease;
 
     &:hover {
         background-color: var(--bg-main);

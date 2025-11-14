@@ -1,4 +1,5 @@
 import { config } from "./config.js";
+import { nuevoContacto } from "./components.js";
 import { utils } from "./utils.js";
 
 export const settings = {
@@ -73,10 +74,8 @@ export const settings = {
                 utils.obtenerObjetoPorID(configGeneral.btnCurrent).click();
             }
         }
-
-        utils.establecerValorPorID("nota01", utils.leerMemLocal("nota01"));
-        utils.establecerValorPorID("nota02", utils.leerMemLocal("nota02"));
-        utils.establecerValorPorID("nota03", utils.leerMemLocal("nota03"));
+        mostrarContenidoNotas();
+        mostrarListaContactos();
     }
 }
 
@@ -123,4 +122,21 @@ function establecerTemaColores(pColor, pBackground) {
     const thisBody = utils.obtenerObjetoPorID("bodyMain");
     thisBody.style.setProperty("--color-theme", pColor);
     thisBody.style.setProperty("--bg-theme", pBackground);
+}
+
+function mostrarContenidoNotas() {
+    const listaNotas = ["nota01", "nota02", "nota03"];
+    listaNotas.forEach(element => {
+        utils.establecerValorPorID(element, utils.leerMemLocal(element));
+    });
+}
+
+function mostrarListaContactos() {
+    const vContactos = utils.leerMemLocal("lstDestinatarios");
+    if (vContactos) {
+        const nvaLista = JSON.parse(vContactos);
+        nvaLista.forEach(nItem => {
+            utils.obtenerObjetoPorID("lstDestinatarios").appendChild(nuevoContacto(nItem));
+        });
+    }
 }
