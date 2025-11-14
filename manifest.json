@@ -25,7 +25,7 @@
         "128": "/assets/icons/utiles-x128.png"
     },
     "background": {
-        "service_worker": "/assets/libs/js/service-worker.js"
+        "service_worker": "/assets/libs/js/exts/service-worker.js"
     },
     "permissions": [
         "sidePanel"
