@@ -338,7 +338,7 @@ input[type="checkbox"] {
 
 .h-input {
     height: fit-content;
-    min-height: 2rem !important;
+    min-height: 1.8rem !important;
 }
 
 .w100 {
