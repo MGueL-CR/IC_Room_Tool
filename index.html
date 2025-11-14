@@ -666,56 +666,48 @@
             <div class="tab">
                 <form action="#" class="row">
                     <div class="col">
-                        <details name="plantillas" class="card bg-opaco shadows">
+                        <details name="plantillas" class="card bg-opaco shadows" open>
                             <summary>Material en piso...</summary>
-                            <div class="row">
-                                <div class="col">
-                                    <div class="card bg-blanco">
-                                        <p>Nueva solicitud:</p>
-                                        <div class="row">
-                                            <div class="col">
-                                                <label for="tipoOpcionN">Tipo:</label>
-                                                <select name="tipoOpcionN" id="tipoOpcionN" class="fts-13">
-                                                    <option value="0">Seleccione</option>
-                                                    <option value="MIR">MIR</option>
-                                                    <option value="MRS">MRS</option>
-                                                    <option value="VPO">VPO</option>
-                                                    <option value="SL">SL</option>
-                                                    <option value="WO">WO</option>
-                                                </select>
-                                            </div>
-                                            <div class="col">
-                                                <label for="numNew">Numero:</label>
-                                                <input id="numNew" type="text" />
-                                            </div>
-                                        </div>
+                            <fieldset>
+                                <legend>Solicitud actual:</legend>
+                                <div class="row m-0">
+                                    <div class="col p-0">
+                                        <label for="tipoOpcionN">Tipo:</label>
+                                        <select name="tipoOpcionN" id="tipoOpcionN" class="fts-13">
+                                            <option value="0">Seleccione</option>
+                                            <option value="MIR">MIR</option>
+                                            <option value="MRS">MRS</option>
+                                            <option value="VPO">VPO</option>
+                                            <option value="SL">SL</option>
+                                            <option value="WO">WO</option>
+                                        </select>
+                                    </div>
+                                    <div class="col">
+                                        <label for="numNew">Numero:</label>
+                                        <input id="numNew" type="text" />
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <div class="card bg-blanco">
-                                        <p>Depende de:</p>
-                                        <div class="row">
-                                            <div class="col">
-                                                <label for="tipoOpcOld">Tipo:</label>
-                                                <select name="tipoOpcOld" id="tipoOpcOld" class="fts-13">
-                                                    <option value="0">Seleccione</option>
-                                                    <option value="MIR">MIR</option>
-                                                    <option value="MRS">MRS</option>
-                                                    <option value="VPO">VPO</option>
-                                                    <option value="SL">SL</option>
-                                                    <option value="WO">WO</option>
-                                                </select>
-                                            </div>
-                                            <div class="col">
-                                                <label for="numOld">Numero:</label>
-                                                <input id="numOld" type="text" />
-                                            </div>
-                                        </div>
+                            </fieldset>
+                            <fieldset>
+                                <legend>Depende de:</legend>
+                                <div class="row m-0">
+                                    <div class="col p-0">
+                                        <label for="tipoOpcOld">Tipo:</label>
+                                        <select name="tipoOpcOld" id="tipoOpcOld" class="fts-13">
+                                            <option value="0">Seleccione</option>
+                                            <option value="MIR">MIR</option>
+                                            <option value="MRS">MRS</option>
+                                            <option value="VPO">VPO</option>
+                                            <option value="SL">SL</option>
+                                            <option value="WO">WO</option>
+                                        </select>
+                                    </div>
+                                    <div class="col">
+                                        <label for="numOld">Numero:</label>
+                                        <input id="numOld" type="text" />
                                     </div>
                                 </div>
-                            </div>
+                            </fieldset>
                             <div class="row">
                                 <div class="col">
                                     <input id="btnMaterialOut" type="button" class="btn btn-main" value="Aplicar" />
@@ -744,7 +736,7 @@
                             </div>
                         </details>
 
-                        <details name="plantillas" class="card bg-opaco shadows" open>
+                        <details name="plantillas" class="card bg-opaco shadows">
                             <summary>Part type sin registro (Prospal)</summary>
                             <div class="row">
                                 <div class="col">
@@ -774,54 +766,43 @@
 
                     <div class="col h-all">
                         <div class="card h-aa1 m-0 borderless">
-                            <fieldset class="m-0">
+                            <fieldset class="pos-relativo borderless">
                                 <legend>Para:</legend>
-                                <div class="row m-0">
-                                    <div class="col p-0">
-                                        <div id="lstDestinatarios" class="destinatarios">
-
-                                        </div>
-                                    </div>
-
+                                <div class="fs-btns pos-absoluto">
+                                    <input id="btnAddContact" type="button" value="Agregar" class="btn btn"
+                                        command="showModal" data-modal="modalDestinatario"
+                                        commandfor="modalDestinatario" />
+                                    <input id="btnCopyContacts" type="button" value="Copiar" class="btn btn-main" />
                                 </div>
-                                <div class="row items-row noWrap">
+                                <div class="row">
                                     <div class="col">
-                                        <input id="btnAddContact" type="button" value="Agregar" class="btn btn-aux mb-0"
-                                            command="showModal" data-modal="modalDestinatario"
-                                            commandfor="modalDestinatario" />
+                                        <div id="lstDestinatarios" class="destinatarios"> </div>
                                     </div>
-                                    <div class="col">
-                                        <input id="btnCopyContacts" type="button" value="Copiar"
-                                            class="btn btn-aux mb-0" />
-                                    </div>
+
                                 </div>
                             </fieldset>
-                            <fieldset>
-                                <legend>Asunto:</legend>
+                            <fieldset class="pos-relativo borderless">
+                                <legend>Asunto: </legend>
+                                <div class="fs-btns pos-absoluto">
+                                    <input id="btnSuject" type="button" value="Copiar" class="btn btn-main" />
+                                </div>
                                 <div class="row">
                                     <div class="col">
                                         <input name="suject" id="suject" type="text" class="m-0" placeholder="Asunto..."
                                             readonly />
                                     </div>
-                                    <div class="col-4">
-                                        <input id="btnSuject" type="button" value="Copiar" class="btn btn-aux" />
-                                    </div>
                                 </div>
                             </fieldset>
-                            <fieldset class="m-0 h-1a">
+                            <fieldset class="h-all pos-relativo borderless">
                                 <legend>Mensaje:</legend>
+                                <div class="fs-btns pos-absoluto">
+                                    <input id="btnMail" type="button" value="Copiar" class="btn btn-main" />
+                                    <input id="btnReset" type="reset" value="Borrar" class="btn" />
+                                </div>
                                 <div class="row">
                                     <div class="col h-all">
                                         <textarea name="textMail" id="textMail" class="autoresize"
-                                            placeholder="Mensaje..." readonly></textarea>
-                                    </div>
-                                </div>
-                                <div class="row items-row noWrap">
-                                    <div class="col">
-                                        <input id="btnMail" type="button" value="Copiar" class="btn btn-main" />
-                                    </div>
-                                    <div class="col">
-                                        <input id="btnReset" type="reset" value="Borrar" class="btn" />
+                                            placeholder="Hi team..." readonly></textarea>
                                     </div>
                                 </div>
                             </fieldset>
