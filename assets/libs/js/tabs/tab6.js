@@ -18,7 +18,7 @@ export const tab6 = {
             utils.validarCampoVacio(data.txtCorreoDest) ||
             utils.validarCampoVacio(data.txtNombDest)
         ) {
-            agregarEnLaLista(data);
+            utils.guardarListaEnMemLocal("lstDestinatarios", data);
             utils.obtenerObjetoPorID("lstDestinatarios").appendChild(nuevoContacto(data));
             e.target.reset();
         }
@@ -89,17 +89,6 @@ export const tab6 = {
 
         utils.establecerValorPorID("suject", asuntoFinal);
         utils.establecerValorPorID("textMail", mensajeFinal);
-    }
-}
-
-function agregarEnLaLista(pData) {
-    const nvaList = utils.leerMemLocal("lstDestinatarios");
-    if (nvaList) {
-        const lstDestinatarios = JSON.parse(nvaList);
-        lstDestinatarios.push(pData);
-        utils.guardarMemLocal("lstDestinatarios", JSON.stringify(lstDestinatarios));
-    } else {
-        utils.guardarMemLocal("lstDestinatarios", JSON.stringify([pData]));
     }
 }
 
