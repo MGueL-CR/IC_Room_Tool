@@ -68,6 +68,7 @@ try {
   */
   utils.crearEvento("inputsTier2", "input", tab4.cambiarValores);
   utils.crearEvento("lstExcepciones", "click", tab4.mostrarContenido);
+  utils.crearEvento("frmExceptions", "submit", tab4.generarNuevaExcepcion);
   utils.crearEvento("frmToBoss", "submit", tab4.copiarCommentTier2);
   utils.crearEvento("btnContenido", "click", tab4.copiarComentarioTier2);
   utils.crearEvento("panelModalTier2", "click", tab4.eventosModal);

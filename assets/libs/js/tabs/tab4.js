@@ -1,6 +1,18 @@
 import { utils } from "../utils.js";
+import { nuevaExcepcion } from "../components.js";
 
 export const tab4 = {
+    generarNuevaExcepcion(e) {
+        const dtForm = Object.fromEntries(new FormData(e.target));
+        if (utils.validarCampoVacio(dtForm.txtContenido)) {
+            const lstExcepciones = utils.obtenerObjetoPorID("lstExcepciones").firstElementChild;
+            const vIndex = lstExcepciones.children.length + 1;
+            const nvaExcep = nuevaExcepcion(vIndex, dtForm);
+            utils.guardarListaEnMemLocal("lstExcepciones", dtForm)
+            lstExcepciones.appendChild(nvaExcep);
+            e.target.reset();
+        }
+    },
     copiarCommentTier2(e) {
         const dtForm = Object.fromEntries(new FormData(e.target));
         if (utils.validarCampoVacio(dtForm.nVPO)) {
@@ -75,8 +87,4 @@ function reemplazarOpciones(pContenido) {
 
 function eliminarEspacios(pValor) {
     return pValor.textContent.replace(/\n/g, " ").replace(/  /g, "").trim();
-}
-
-function guardarNuevaExcepcion() {
-    // body...
 }

@@ -814,18 +814,27 @@
     </main>
 
     <dialog id="modalException" class="borderless radius dialogo bg-none shadows w50">
-        <form method="dialog" class="card bg-blanco m-0">
+        <form id="frmExceptions" method="dialog" class="card bg-blanco m-0">
             <p>Nueva excepcion</p>
             <div class="row">
                 <div class="col">
                     <label for="txtTitulo">Nombre:</label>
-                    <input type="text" name="txtTitulo" id="txtTitulo" required />
+                    <input type="text" name="txtTitulo" id="txtTitulo" placeholder="Nombre especifico" required />
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <label for="txtContenido">Contenido:</label>
-                    <textarea id="txtContenido" name="txtContenido" required></textarea>
+                    <textarea id="txtContenido" name="txtContenido"
+                        placeholder="Hay @Cant unidades asignadas bajo el @Asignado..." required></textarea>
+                </div>
+            </div>
+            <div class="row m-0">
+                <div class="col p-0">
+                    <em>Tips de uso:</em>
+                    <span class="tooltips" data-tooltip="Para indicar la cantidad disponible.">@Cant</span>,
+                    <span class="tooltips" data-tooltip="Para indicar SL que pertenece ahora.">@Lotes</span>,
+                    <span class="tooltips" data-tooltip="Para indicar a que esta asignado el material.">@Asignado</span>
                 </div>
             </div>
             <div id="buttonsExceptions" class="row items-row noWrap">

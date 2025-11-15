@@ -84,6 +84,16 @@ html:has(#rdoMoon:checked) {
     color: var(--clr-text-blk);
 }
 
+.tooltips::before {
+    width: fit-content;
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem !important;
+    background-color: var(--bg-custom) !important;
+    backdrop-filter: blur(1rem) !important;
+    color: currentColor !important;
+
+}
+
 ::selection,
 mark {
     background: var(--clr-custom) !important;
@@ -495,6 +505,7 @@ textarea {
     resize: none;
     background-color: var(--bg-custom);
     field-sizing: content !important;
+    white-space: wrap;
 }
 
 input[type='button'],

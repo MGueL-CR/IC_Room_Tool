@@ -12,6 +12,10 @@ export const utils = {
         }
     },
 
+    nuevoElemento(pTipo) {
+        return document.createElement(pTipo);
+    },
+
     obtenerObjetosPorTag(pTag) {
         return document.getElementsByTagName(pTag);
     },
@@ -74,6 +78,17 @@ export const utils = {
         window.localStorage.setItem(pKey, pValue);
     },
 
+    guardarListaEnMemLocal(pListaID, pData) {
+        const nvoContenido = this.leerMemLocal(pListaID);
+        if (nvoContenido) {
+            const nvaLista = JSON.parse(nvoContenido);
+            nvaLista.push(pData);
+            this.guardarMemLocal(pListaID, JSON.stringify(nvaLista));
+        } else {
+            this.guardarMemLocal(pListaID, JSON.stringify([pData]))
+        }
+    },
+
     abrirVortex(pValor) {
         window.open(
             `https://vortexreports.intel.com/Reports/Card/RunCardFilter.aspx?obj=${pValor}`,
@@ -83,11 +98,11 @@ export const utils = {
 
     abrirModal(pBtn) {
         const idModal = pBtn.dataset.modal;
-        utils.obtenerObjetoPorID(idModal).showModal();
+        this.obtenerObjetoPorID(idModal).showModal();
     },
 
     cerrarModal(pBtn) {
         const idModal = pBtn.dataset.modal;
-        utils.obtenerObjetoPorID(idModal).close();
+        this.obtenerObjetoPorID(idModal).close();
     }
 }
