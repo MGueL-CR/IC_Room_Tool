@@ -1,0 +1,30 @@
+[
+    {
+        "txtTitulo": "Material incompleto",
+        "txtContenido": "No se puede procesar esta solicitud, no se cuenta con el material completo. El material ya no pertenece al SourceLot correspondiente. Ahora pertenece a @Lotes. Por favor indicarnos si procesamos su solicitud con el material disponible (@Cant unidades disponibles) o si se requiere cancelar la solicitud."
+    },
+    {
+        "txtTitulo": "Material no disponible",
+        "txtContenido": "Esta solicitud no se puede procesar por que el material solicitado ya no pertenece al Source Lot solicitado. Ahora pertenece a: @Lotes. Para poder procesar su solicitud debe de crear una nueva orden tomando el material del Source lot mencionado."
+    },
+    {
+        "txtTitulo": "Material del inventario",
+        "txtContenido": "Esta solicitud no se puede procesar porque solicita material de (Active: Engineering, Correlation, Qual,etc). Es decir, las VPO de WO/Zero Qty solo pueden utilizar material de INACTIVE: LOCKING CAGE o INACTIVE: DPM."
+    },
+    {
+        "txtTitulo": "VPO en Piso",
+        "txtContenido": "Esta solicitud no se puede procesar por que esta VPO ya fue creada y se encuentra en piso, por tanto, no se puede volver a crear."
+    },
+    {
+        "txtTitulo": "Unidades en Shipping",
+        "txtContenido": "No se puede procesar, del material solicitado solamente hay @Cant unidades disponibles, dado que las demas unidades se exportaron bajo el MRS# @Asignado, favor indicarnos como proceder."
+    },
+    {
+        "txtTitulo": "Unidades en Allocate",
+        "txtContenido": "No se puede procesar, hay @Cant unidades que se encuentran dentro del MRS# @Asignado (Allocate) y el solicitante no se encuentra dentro de la lista de distribución por lo que se debe pedir permiso al dueño del MRS para utilizar dicho material."
+    },
+    {
+        "txtTitulo": "SL sin recibir (RANs)",
+        "txtContenido": "Esta solicitud no se puede procesar por que el material aún no se ha recibido en el site."
+    }
+]

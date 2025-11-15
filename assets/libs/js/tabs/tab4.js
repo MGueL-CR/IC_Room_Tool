@@ -5,8 +5,8 @@ export const tab4 = {
     generarNuevaExcepcion(e) {
         const dtForm = Object.fromEntries(new FormData(e.target));
         if (utils.validarCampoVacio(dtForm.txtContenido)) {
-            const lstExcepciones = utils.obtenerObjetoPorID("lstExcepciones").firstElementChild;
-            const vIndex = lstExcepciones.children.length + 1;
+            const lstExcepciones = utils.obtenerObjetoPorID("lstExcepciones");
+            const vIndex = lstExcepciones.length + 1;
             const nvaExcep = nuevaExcepcion(vIndex, dtForm);
             utils.guardarListaEnMemLocal("lstExcepciones", dtForm)
             lstExcepciones.appendChild(nvaExcep);

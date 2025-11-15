@@ -1,5 +1,5 @@
 import { config } from "./config.js";
-import { nuevoContacto } from "./components.js";
+import { nuevaExcepcion, nuevoContacto } from "./components.js";
 import { utils } from "./utils.js";
 
 export const settings = {
@@ -75,6 +75,7 @@ export const settings = {
             }
         }
         mostrarContenidoNotas();
+        mostrarListaExcepciones();
         mostrarListaContactos();
     }
 }
@@ -135,8 +136,39 @@ function mostrarListaContactos() {
     const vContactos = utils.leerMemLocal("lstDestinatarios");
     if (vContactos) {
         const nvaLista = JSON.parse(vContactos);
-        nvaLista.forEach(nItem => {
-            utils.obtenerObjetoPorID("lstDestinatarios").appendChild(nuevoContacto(nItem));
+        nvaLista.forEach(vItem => {
+            cargarElementoHTML("lstDestinatarios", nuevoContacto(vItem));
         });
     }
+}
+
+function mostrarListaExcepciones() {
+    const vContenido = utils.leerMemLocal("lstExcepciones");
+
+    if (vContenido) {
+        cargarListaExcepciones("localStore", JSON.parse(vContenido));
+    } else {
+        fetch("./assets/files/templates.json")
+            .then(res => res.json())
+            .then(data => {
+                cargarListaExcepciones("templates", data);
+            })
+            .catch(error => {
+                console.clear();
+                console.error('No se logró cargar las excepciones:', error);
+            });
+    }
+}
+
+function cargarListaExcepciones(pOrigen, pData) {
+    pData.forEach((vItem, vIndex) => {
+        cargarElementoHTML("lstExcepciones", nuevaExcepcion(vIndex, vItem));
+        if (pOrigen === "templates") {
+            utils.guardarListaEnMemLocal("lstExcepciones", vItem);
+        }
+    });
+}
+
+function cargarElementoHTML(pObjID, pFuncion) {
+    utils.obtenerObjetoPorID(pObjID).appendChild(pFuncion);
 }
