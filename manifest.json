@@ -1,13 +1,13 @@
 {
-    "name": "ICR Tool",
+    "name": "IC-Room Tool",
     "description": "Administra y trabaje de manera más facil con plantillas de texto.",
     "author": "@MGueL-CR",
     "version": "1.0.0.0",
     "manifest_version": 3,
     "action": {
-        "default_title": "ICR Tool",
-        "default_description": "Administra y trabaje de manera más facil con plantillas de texto.",
-        "default_popup": "/assets/html/popup.html",
+        "default_title": "IC-Room Tool",
+        "default_description": "Administra y trabaje de manera más facil con un formateador de texto.",
+        "default_popup": "/assets/files/popup.html",
         "default_icon": {
             "16": "/assets/icons/utiles-x16.png",
             "32": "/assets/icons/utiles-x32.png",
