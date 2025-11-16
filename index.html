@@ -16,8 +16,8 @@
         .banner,
         .container,
         .img-fondo {
-            opacity: 0;
-            animation: mostrarContenido 750ms forwards 2.5s;
+            visibility: hidden;
+            animation: mostrarContenido 500ms forwards 3s;
         }
 
         .splash-screen {
@@ -39,11 +39,11 @@
 
         @keyframes mostrarContenido {
             from {
-                opacity: 0;
+                visibility: hidden;
             }
 
             to {
-                opacity: 1;
+                visibility: visible;
             }
         }
 
