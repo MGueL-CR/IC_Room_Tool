@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Acerca de IC-Room Tool">
+    <link rel="shortcut icon" href="../icons/favicon.ico" type="image/x-icon">
+    <title>IC-Room Tool</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: content-box;
+            font-family: sans-serif;
+        }
+
+        :root {
+            --clrA1: #D9693A;
+            --clrA2: #D8553C;
+            --clrB1: #4B95D0;
+            --clrB2: #3F75B9;
+            --clrC1: #E7CA38;
+            --clrC2: #E5AB3A;
+        }
+
+        html {
+            width: fit-content;
+        }
+
+        body {
+            display: inline-block;
+            padding: 3px;
+            border: solid 3px var(--clrB2);
+            background-color: var(--clrB2);
+            background-image: url(../icons/utiles-x128.png);
+            background-repeat: no-repeat;
+            background-position: right;
+            background-size: contain;
+            background-clip: content-box;
+        }
+
+        .contenedor {
+            position: relative;
+            display: grid;
+            grid-template-areas:
+                "section aside"
+                "footer footer";
+            gap: 6px;
+            min-width: 420px;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 0 5px 0px #263238;
+            border-radius: 8px;
+            padding: 0.5rem;
+        }
+
+        .logo {
+            grid-area: aside;
+            display: flex;
+            width: fit-content;
+            background-color: transparent;
+            overflow: visible;
+        }
+
+        .logo .img-logo {
+            place-self: center;
+            width: 128px;
+            height: 128px;
+        }
+
+        .detalles {
+            grid-area: section;
+            display: flex;
+            flex-direction: column;
+            align-items: normal;
+            justify-content: space-between;
+            gap: 0.3rem;
+            color: #232323;
+            font-size: 12px;
+            text-align: justify;
+            padding: 0.325rem 0.75rem;
+            z-index: 10;
+        }
+
+        .detalles .titulo {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--clrB1);
+        }
+
+        .detalles .titulo .version {
+            float: inline-end;
+            color: var(--clrB2);
+            padding-right: 1rem;
+        }
+
+        .detalles .descripcion {
+            font-style: italic;
+        }
+
+        .detalles .credito {
+            place-self: end end;
+        }
+
+        .detalles .credito .perfilWeb {
+            text-decoration: none;
+            color: var(--clrC2);
+            font-weight: 600;
+        }
+
+        .footer {
+            grid-area: footer;
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #26323833;
+            padding-top: 6px;
+        }
+
+        .footer .github {
+            place-self: center;
+            text-align: start;
+            font-style: italic;
+            font-size: x-small;
+            font-weight: 400;
+        }
+
+        .footer .github a {
+            color: var(--clrA2);
+            font-weight: bolder;
+            text-decoration: none;
+        }
+
+        .footer .github a:hover {
+            color: var(--clrA1);
+            text-decoration: underline;
+        }
+
+        .footer .btn-open {
+            place-self: end;
+            flex: 0 0 112px;
+            padding: 0.375em 0.75em;
+            border-radius: 6px;
+            border: 2px solid transparent;
+            background-color: var(--clrA1);
+            color: #ffffff;
+            border-right-color: var(--clrA2);
+            border-bottom-color: var(--clrA2);
+            box-shadow: none;
+            transition: all 250ms ease-in-out;
+        }
+
+        .footer .btn-open:hover {
+            background-color: #f5f5f5;
+            color: var(--clrA2);
+            border-color: transparent;
+            box-shadow: 0 0 0 2px var(--clrA1);
+        }
+
+        .footer .btn-open:active {
+            background-color: var(--clrA2);
+            color: #f5f5f5;
+            border-color: var(--clrA2);
+            box-shadow: 0 0 0 2px var(--clrA1);
+        }
+    </style>
+</head>
+
+<body>
+    <main class="contenedor">
+        <section class="detalles">
+            <span class="titulo">IC-Room Tool <sup class="version">v1.0.0.0</sup></span>
+            <span class="descripcion">Con <b>IC-Room Tool</b> podrá administrar y trabajar de manera más facil con
+                plantillas de formato para texto.
+            </span>
+            <span class="credito">Desarrollado por
+                <a class="perfilWeb" href="http://www.linkedin.com/in/mguel-dev" target="_blank">@MGueL-Dev</a>
+            </span>
+        </section>
+        <aside class="logo">
+            <img class="img-logo" src="../icons/utiles-x128.png" alt="imagen del logo daruma" />
+        </aside>
+        <footer class="footer">
+            <span class="github">
+                ** Extensión de código abierto, ver en: <a class="perfilWeb"
+                    href="https://github.com/MGueL-CR/IC_Room_Tool" target="_blank">
+                    GitHub</a>
+            </span>
+            <button id="btnMostrarPanel" class="btn-open">Mostrar Panel</button>
+        </footer>
+    </main>
+    <script type="module" src="../libs/js/exts/openPanel.js"></script>
+</body>
+
+</html>

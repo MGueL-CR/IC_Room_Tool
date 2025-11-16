@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/icons/favicon.ico" type="image/x-icon" />
+    <meta name="title" content="formateador de texto">
+    <meta name="description" content="IC-Room Tool">
+    <meta name="keywords" content="formateador de texto">
+    <meta name="author" content="http://www.linkedin.com/in/mguel-dev">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>IC-Room Tool</title>
+    <style>
+        .banner,
+        .container,
+        .img-fondo {
+            opacity: 0;
+            animation: mostrarContenido 750ms forwards 2.5s;
+        }
+
+        .splash-screen {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            animation: ocultarPanel 1s forwards 2s;
+        }
+
+        .splash-screen .text-logo p {
+            font-size: xx-large;
+            font-weight: bolder;
+            text-shadow: 0 0 1rem;
+        }
+
+        @keyframes mostrarContenido {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes ocultarPanel {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="./assets/libs/css/tabbox.css" />
+    <link rel="stylesheet" href="./assets/libs/css/classless.css" />
+    <link rel="stylesheet" href="./assets/libs/css/styles.css">
+</head>
+
+<body id="bodyMain" style="--color-theme: none; --bg-theme: none">
+    <div class="banner">
+        <nav id="mainMenu">
+            <div class="mnuItem">
+                <span>Tema:</span>
+                <div id="grpThemes" class="mnuGroups grpThemes">
+                    <input type="radio" name="rdobtn" id="rdoSun" value="thm-light">
+                    <label class="round-ini" for="rdoSun">☀️</label>
+                    <input type="radio" name="rdobtn" id="rdoMoon" value="thm-dark">
+                    <label class="round-end" for="rdoMoon">🌙</label>
+                </div>
+            </div>
+            <div class="mnuItem">
+                <span>Fondo:</span>
+                <div id="grpFondos" class="mnuGroups grpFondos">
+                    <input id="btnFondoMain" type="button" value="" class="btn no-margin" />
+                    <div id="lstFondos" class="subMenu">
+                        <div id="bg00" class="opcFondo">X</div>
+                        <div id="bg01" class="opcFondo">1</div>
+                        <div id="bg02" class="opcFondo">2</div>
+                        <div id="bg03" class="opcFondo">3</div>
+                        <div id="bg04" class="opcFondo">4</div>
+                        <div id="bg05" class="opcFondo">5</div>
+                        <div id="bg06" class="opcFondo">6</div>
+                        <div id="bg07" class="opcFondo">7</div>
+                    </div>
+                </div>
+            </div>
+            <div class="mnuItem">
+                <span>Color:</span>
+                <div class="mnuGroups grpColors">
+                    <input id="btnColorMain" type="button" value="" class="btn no-margin" />
+                    <div id="lstColores" class="subMenu">
+                        <div id="greend" class="div-color no-margin green" style="
+            color: #1a8917; background-color: #1a891710;"></div>
+
+                        <div id="greenl" class="div-color no-margin green" style="
+              color: #2ECC71; background-color: #2ECC7110;"></div>
+
+                        <div id="hintd" class="div-color no-margin hint-d" style=" 
+              color: #00bb99; background-color: #00bb9910;"></div>
+
+                        <div id="hint0" class="div-color no-margin green" style="
+              color: #16A085; background-color: #16A08510;"></div>
+
+                        <div id="hintl" class="div-color no-margin hint-l" style="
+            color: #008888; background-color: #00888810;"></div>
+
+                        <div id="infod" class="div-color no-margin info-d" style="
+            color: #0fa0ce; background-color:#0fa0ce10;"></div>
+
+                        <div id="infol" class="div-color no-margin info-l" style="
+            color: #1f8dd6; background-color: #1f8dd610;"></div>
+
+                        <div id="blue" class="div-color no-margin light" style="
+            color: #2980B9; background-color: #2980B910;"></div>
+
+                        <div id="lilal" class="div-color no-margin lila-l" style="
+            color: #7952b3; background-color: #7952b310;"></div>
+
+                        <div id="lilad" class="div-color no-margin lila-d" style="
+            color: #9b4dca; background-color: #9b4dca10;"></div>
+
+                        <div id="purple" class="div-color no-margin light" style="
+            color: #9b59b6; background-color: #9b59b610;"></div>
+
+                        <div id="warnl" class="div-color no-margin warn-l" style="
+              color: #982c61; background-color: #982c6110;"></div>
+
+                        <div id="warnd" class="div-color no-margin warn-d" style="
+              color: #cc1111; background-color: #ee222210;"></div>
+
+                        <div id="ogranged" class="div-color no-margin warn-d" style="
+              color: #E74C3C; background-color: #E74C3C10;"></div>
+
+                        <div id="ograngel" class="div-color no-margin warn-d" style="
+              color: #E67E22; background-color: #E67E2210;"></div>
+
+                        <div id="yellow" class="div-color no-margin dark" style="
+            color: #F1C40F; background-color: #F1C40F10;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="mnuItem">
+                <label for="userInitials">Mis Iniciales:</label>
+                <div class="mnuGroups">
+                    <input type="text" name="userInitials" id="userInitials"
+                        class="m-0 initials no-border-radius-end" />
+                    <input id="btnInitial" type="button" value="💾" class="btn btn-initial no-border-radius-start" />
+                </div>
+            </div>
+        </nav>
+        <div class="box-close">
+            <button id="btnColapse" type="button" class="no-margin bg-opaco">
+                <span class="material-symbols-outlined">
+                    remove
+                </span>
+            </button>
+        </div>
+    </div>
+    <aside class="splash-screen">
+        <img src="./assets/icons/utiles-x128.png" alt="logo-IC-Room-Tool" class="img-logo">
+
+        <div class="text-logo">
+            <p>Bienvenidos...</p>
+        </div>
+    </aside>
+    <main class="container transition-color radius">
+        <div class="tabs bg-blanco">
+            <input type="radio" name="tabs" id="tabone" />
+            <label class="label bg-blanco" for="tabone">Notas</label>
+            <div class="tab">
+                <div class="row">
+                    <div class="col">
+                        <details name="anotaciones" id="anotaciones1" class="card bg-opaco shadows" open>
+                            <summary>Notas #1</summary>
+                            <form action="#">
+                                <div class="row">
+                                    <div class="col">
+                                        <label hidden for="nota01">Notas #1:</label>
+                                        <textarea name="nota01" id="nota01" class="autoresize"
+                                            placeholder="Escriba aquí..."></textarea>
+                                    </div>
+                                </div>
+                            </form>
+                        </details>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <details name="anotaciones" id="anotaciones2" class="card bg-opaco shadows">
+                            <summary>Notas #2</summary>
+                            <form action="#">
+                                <div class="row">
+                                    <div class="col">
+                                        <label hidden for="nota02">Notas #2:</label>
+                                        <textarea name="nota02" id="nota02" class="autoresize"
+                                            placeholder="Escriba aquí..."></textarea>
+                                    </div>
+                                </div>
+                            </form>
+                        </details>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <details name="anotaciones" id="anotaciones3" class="card bg-opaco shadows">
+                            <summary>Notas #3</summary>
+                            <form action="#">
+                                <div class="row">
+                                    <div class="col">
+                                        <label hidden for="nota03">Notas #3:</label>
+                                        <textarea name="nota03" id="nota03" class="autoresize"
+                                            placeholder="Escriba aquí..."></textarea>
+                                    </div>
+                                </div>
+                            </form>
+                        </details>
+                    </div>
+                </div>
+            </div>
+
+            <input type="radio" name="tabs" id="tabtwo" />
+            <label class="label bg-blanco" for="tabtwo">Comentarios</label>
+            <div class="tab">
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col">
+                                <details name="generales" class="card bg-opaco shadows">
+                                    <summary>Recibos (CRATS)</summary>
+                                    <form action="#">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="row h-1a pos-relativo">
+                                                    <div class="col pos-absoluto corner-tr">
+                                                        <input id="btnBorrar" class="btn" type="reset" value="Borrar" />
+                                                    </div>
+                                                    <div class="col h-a1">
+                                                        <label for="textCopiedCRT">Linea copiada:</label>
+                                                        <textarea name="textCopiedCRT" id="textCopiedCRT"
+                                                            class="autoresize mt-1"
+                                                            placeholder="Pegar aqui..."></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-1">
+                                                    <div class="col">
+                                                        <label for="txtLocation">Location:</label>
+                                                        <input id="txtLocation" name="txtLocation" type="text"
+                                                            readonly />
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="txtUnits">Units:</label>
+                                                        <input id="txtUnits" name="txtUnits" type="text" readonly />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="inputsCRT" class="col">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <label for="txtOwner">Owner:</label>
+                                                        <input id="txtOwner" name="txtOwner" type="text" />
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <label for="txtLotName">Lot:</label>
+                                                        <input id="txtLotName" name="txtLotName" type="text" />
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="txtPartType">Part Type:</label>
+                                                        <input id="txtPartType" name="txtPartType" type="text" />
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <label for="txtQDF">QDF:</label>
+                                                        <input id="txtQDF" name="txtQDF" type="text" />
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="commenCTR">Comment:</label>
+                                                        <input id="commenCTR" name="commenCTR" type="text" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </details>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <details name="generales" class="card bg-opaco shadows">
+                                    <summary>Zero Quantity...</summary>
+                                    <form action="#">
+                                        <div id="inputsWO" class="row">
+                                            <div class="col h-a1">
+                                                <label for="textCopied">Texto de la Fila:</label>
+                                                <textarea name="textCopied" id="textCopied" class="autoresize"
+                                                    placeholder="Pegar aqui..."></textarea>
+                                            </div>
+                                            <div class="col">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <label for="txtNumWO">Num. VPO:</label>
+                                                        <input type="text" name="txtNumWO" id="txtNumWO" class="m-0">
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="txtQty">Cantidad:</label>
+                                                        <input type="number" name="txtQty" id="txtQty" class="m-0">
+                                                    </div>
+                                                    <div class=" col">
+                                                        <label for="txtMachine">Maquina:</label>
+                                                        <input type="text" name="txtMachine" id="txtMachine"
+                                                            class="m-0">
+                                                    </div>
+                                                </div>
+                                                <div class=" row">
+                                                    <div class="col">
+                                                        <label for="commentWO">Comentario:</label>
+                                                        <input id="commentWO" name="commentWO" type="text" readonly />
+                                                    </div>
+                                                </div>
+                                                <div class="row items-row noWrap">
+                                                    <div class="col">
+                                                        <input id="btnCopyWO" class="btn btn-main" type="button"
+                                                            value="Copiar" />
+                                                    </div>
+                                                    <div class="col">
+                                                        <input id="btnImprimirWO" class="btn btn-aux" type="button"
+                                                            value="Imprimir" />
+                                                    </div>
+                                                    <div class="col">
+                                                        <input id="btnDeleteWO" class="btn" type="reset"
+                                                            value="Borrar" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </details>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <details name="generales" class="card bg-opaco shadows">
+                                    <summary>Recibos (RANES)</summary>
+                                    <form action="#">
+                                        <div id="inputsRANs" class="row">
+                                            <div class="col">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <label for="nRan"># RAN:</label>
+                                                        <input id="nRan" name="nRan" type="number" />
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <label for="codBol">Cod. ISM/BLS:</label>
+                                                        <input id="codBol" name="codBol" type="text" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <label for="ranLocation">HVI Location:</label>
+                                                        <input id="ranLocation" name="ranLocation" type="text"
+                                                            readonly />
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <label for="ranComment">Comentario:</label>
+                                                        <input id="ranComment" name="ranComment" type="text" readonly />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col"></div>
+                                            <div class="col">
+                                                <div class="row items-row noWrap">
+                                                    <div class="col">
+                                                        <input id="btnRan" class="btn btn-main" type="button"
+                                                            value="Copiar" />
+                                                    </div>
+                                                    <div class="col">
+                                                        <input id="btnDeleteRan" class="btn" type="reset"
+                                                            value="Borrar" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <input type="radio" name="tabs" id="tabthree" />
+            <label class="label bg-blanco" for="tabthree">Dependencias</label>
+            <div class="tab">
+                <div class="row">
+                    <div class="col">
+                        <form id="especificas" action="#" class="card bg-none borderless">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="listaLotes">Asignado a:</label>
+                                            <textarea class="h-input" name="listaLotes" id="listaLotes"
+                                                placeholder="J60123... MRS123... MIR123..."></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="uDisponibles">Unidades Disponibles</label>
+                                            <input type="number" value="0" min="0" max="1500" name="uDisponibles"
+                                                id="uDisponibles" />
+                                        </div>
+                                        <div class="col"></div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="chkTipos">
+                                        <div class="row">
+                                            <div class="col">
+                                                <input type="checkbox" name="cantExacta" id="cantExacta"
+                                                    class="alignVe" />
+                                                <label for="cantExacta" class="bg-blanco">Depende Totalmente</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <input type="checkbox" name="comparteUds" id="comparteUds"
+                                                    class="alignVe" />
+                                                <label for="comparteUds" class="bg-blanco">Comparte Unidades</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <input type="checkbox" name="darIndicacion" id="darIndicacion"
+                                                    class="alignVe" />
+                                                <label for="darIndicacion" class="bg-blanco">Dar Indicaciones</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>Resumen:</span>
+                                            <textarea name="resultado" id="resultado"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col selfCenter">
+                                    <div class="row items-column">
+                                        <div class="col">
+                                            <input type="button" value="Copiar" id="btnDependencia"
+                                                class="btn btn-main" />
+                                        </div>
+                                        <div class="col">
+                                            <input type="reset" value="Borrar" id="btnDel" class="btn warn" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <input type="radio" name="tabs" id="tabfour" />
+            <label class="label bg-blanco" for="tabfour">Tier-2</label>
+            <div class="tab">
+                <div class="row">
+                    <div class="col">
+                        <div id="panelModalTier2" class="row items-row noWrap">
+                            <div class="col">
+                                <input id="btnAgregar" type="button" data-modal="modalException" class="btn"
+                                    command="showModal" commandfor="modalException" value="Nueva Excepción">
+                            </div>
+                            <div class="col">
+                                <input id="btnToBoss" type="button" data-modal="modalToBoss" class="btn"
+                                    command="showModal" commandfor="modalToBoss" value="Enviar nota">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col h-all">
+                                <form class="card h-a1 bg-blanco borderless">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div id="inputsTier2" class="card">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <label for="txtTipoExcep">Tipo de excepción</label>
+                                                        <details class="card enColumna bg-blanco shadows">
+                                                            <summary>Excepciones...</summary>
+                                                            <div id="lstExcepciones" class="row items-row">
+                                                            </div>
+                                                        </details>
+                                                        <input type="hidden" name="txtTipoExcep" id="txtTipoExcep"
+                                                            value="" placeholder="excepcionID" />
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <label for="txtUnidades">Unidades disponibles</label>
+                                                        <input type="number" name="txtUnidades" id="txtUnidades" min="0"
+                                                            value="" placeholder="0" />
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="txtAsignado">Asignado a</label>
+                                                        <input type="text" name="txtAsignado" id="txtAsignado" value=""
+                                                            placeholder="J5X... MRS9XX... MIR13..." />
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <label for="txtMaterial">SL/VPO/MRS/MIR</label>
+                                                        <input type="text" name="txtMaterial" id="txtMaterial" value=""
+                                                            placeholder="GNRSP... SRFAP... CWFAP..." />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col h-a1">
+                                            <label for="txtExcepcion" class="alignVe">Contenido:
+                                            </label>
+                                            <textarea name="txtExcepcion" id="txtExcepcion"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row items-row noWrap">
+                                        <div class="col">
+                                            <input id="btnContenido" type="button" class="btn btn-aux" value="Copiar" />
+                                        </div>
+                                        <div class="col">
+                                            <input id="btnEliminar" type="reset" class="btn" value="Borrar" />
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <input type="radio" name="tabs" id="tabfive" />
+            <label class="label bg-blanco" for="tabfive">Filtrar Lotes</label>
+            <div class="tab">
+                <form id="frmFiltro" action="#">
+                    <div class="row">
+                        <div class="col ">
+                            <details class="card bg-opaco shadows" open>
+                                <summary>Filtrar lotes desde...</summary>
+                                <div class="row pos-relativo">
+                                    <div class="col pos-absoluto corner-tr">
+                                        <input type="reset" class="btn" value="Borrar" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col formGroup">
+                                        <label for="dscLotes">Contenido: </label>
+                                        <textarea name="dscLotes" id="dscLotes" class="mt-1"
+                                            placeholder="Pegar aqui..."></textarea>
+                                    </div>
+                                </div>
+                            </details>
+                        </div>
+                        <div class="col h-all">
+                            <div class="card h-1a bg-none borderless">
+                                <div class="row pos-relativo">
+                                    <div class="col pos-absoluto corner-tr">
+                                        <input id="btnLotsCopy" type="button" class="btn btn-aux" value="Copiar" />
+                                    </div>
+                                    <div class="col h-a1">
+                                        <label for="listLots">Lista de lotes: </label>
+                                        <textarea name="listLots" id="listLots" class="mt-1" readonly></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <input type="radio" name="tabs" id="tabsix" />
+            <label class="label bg-blanco" for="tabsix">Plantillas Correos</label>
+            <div class="tab">
+                <form action="#" class="row">
+                    <div class="col">
+                        <details name="plantillas" class="card bg-opaco shadows" open>
+                            <summary>Material en piso...</summary>
+                            <fieldset>
+                                <legend>Solicitud actual:</legend>
+                                <div class="row m-0">
+                                    <div class="col p-0">
+                                        <label for="tipoOpcionN">Tipo:</label>
+                                        <select name="tipoOpcionN" id="tipoOpcionN" class="fts-13">
+                                            <option value="0">Seleccione</option>
+                                            <option value="MIR">MIR</option>
+                                            <option value="MRS">MRS</option>
+                                            <option value="VPO">VPO</option>
+                                            <option value="SL">SL</option>
+                                            <option value="WO">WO</option>
+                                        </select>
+                                    </div>
+                                    <div class="col">
+                                        <label for="numNew">Numero:</label>
+                                        <input id="numNew" type="text" />
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <legend>Depende de:</legend>
+                                <div class="row m-0">
+                                    <div class="col p-0">
+                                        <label for="tipoOpcOld">Tipo:</label>
+                                        <select name="tipoOpcOld" id="tipoOpcOld" class="fts-13">
+                                            <option value="0">Seleccione</option>
+                                            <option value="MIR">MIR</option>
+                                            <option value="MRS">MRS</option>
+                                            <option value="VPO">VPO</option>
+                                            <option value="SL">SL</option>
+                                            <option value="WO">WO</option>
+                                        </select>
+                                    </div>
+                                    <div class="col">
+                                        <label for="numOld">Numero:</label>
+                                        <input id="numOld" type="text" />
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="row">
+                                <div class="col">
+                                    <input id="btnMaterialOut" type="button" class="btn btn-main" value="Aplicar" />
+                                </div>
+                            </div>
+                        </details>
+
+                        <details name="plantillas" class="card bg-opaco shadows">
+                            <summary>Recibo sin registro (Import Material)</summary>
+                            <div class="row">
+                                <div class="col">
+                                    <label for="numRAN">RAN:</label>
+                                    <input name="numRAN" id="numRAN" type="number" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label for="txtBOL">BLS/ISM:</label>
+                                    <input name="txtBOL" id="txtBOL" type="text" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <input id="btnImpMaterial" type="button" class="btn btn-main" value="Aplicar" />
+                                </div>
+                            </div>
+                        </details>
+
+                        <details name="plantillas" class="card bg-opaco shadows">
+                            <summary>Part type sin registro (Prospal)</summary>
+                            <div class="row">
+                                <div class="col">
+                                    <label for="numMRS">MRS:</label>
+                                    <input name="numMRS" id="numMRS" type="number" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label for="txtType">Part Type:</label>
+                                    <input name="txtType" id="txtType" type="text" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label for="txtName">Product Name:</label>
+                                    <input name="txtName" id="txtName" type="text" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <input id="btnProspal" type="button" class="btn btn-main" value="Aplicar" />
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div class="col h-all">
+                        <div class="card h-aa1 borderless">
+                            <fieldset class="pos-relativo borderless">
+                                <legend>Para:</legend>
+                                <div class="fs-btns pos-absoluto">
+                                    <input id="btnAddContact" type="button" value="Agregar" class="btn btn"
+                                        command="showModal" data-modal="modalDestinatario"
+                                        commandfor="modalDestinatario" />
+                                    <input id="btnCopyContacts" type="button" value="Copiar" class="btn btn-main" />
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div id="lstDestinatarios" class="destinatarios"></div>
+                                    </div>
+
+                                </div>
+                            </fieldset>
+                            <fieldset class="pos-relativo borderless">
+                                <legend>Asunto: </legend>
+                                <div class="fs-btns pos-absoluto">
+                                    <input id="btnSuject" type="button" value="Copiar" class="btn btn-main" />
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <input name="suject" id="suject" type="text" class="m-0" placeholder="Asunto..."
+                                            readonly />
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="h-all pos-relativo borderless">
+                                <legend>Mensaje:</legend>
+                                <div class="fs-btns pos-absoluto">
+                                    <input id="btnMail" type="button" value="Copiar" class="btn btn-main" />
+                                    <input id="btnReset" type="reset" value="Borrar" class="btn" />
+                                </div>
+                                <div class="row">
+                                    <div class="col h-all">
+                                        <textarea name="textMail" id="textMail" class="autoresize"
+                                            placeholder="Hi team..." readonly></textarea>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <dialog id="modalException" class="borderless radius dialogo bg-none shadows w50">
+        <form id="frmExceptions" method="dialog" class="card bg-blanco m-0">
+            <p>Nueva excepcion</p>
+            <div class="row">
+                <div class="col">
+                    <label for="txtTitulo">Nombre:</label>
+                    <input type="text" name="txtTitulo" id="txtTitulo" placeholder="Nombre especifico" required />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="txtContenido">Contenido:</label>
+                    <textarea id="txtContenido" name="txtContenido"
+                        placeholder="Hay @Cant unidades asignadas bajo el @Asignado..." required></textarea>
+                </div>
+            </div>
+            <div class="row m-0">
+                <div class="col p-0">
+                    <em>Tips de uso:</em>
+                    <span class="tooltips" data-tooltip="Para indicar la cantidad disponible.">@Cant</span>,
+                    <span class="tooltips" data-tooltip="Para indicar SL que pertenece ahora.">@Lotes</span>,
+                    <span class="tooltips" data-tooltip="Para indicar a que esta asignado el material.">@Asignado</span>
+                </div>
+            </div>
+            <div id="buttonsExceptions" class="row items-row noWrap">
+                <div class="col">
+                    <input type="submit" id="btnGuardar" class="btn btn-main" value="Guardar">
+                </div>
+                <div class="col">
+                    <input type="reset" id="btnCerrar" class="btn btn-aux" data-modal="modalException" value="Cerrar">
+                </div>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog id="modalToBoss" class="borderless radius dialogo bg-none shadows">
+        <form id="frmToBoss" method="dialog" class="card bg-blanco m-0">
+            <p>Nota al jefe...</p>
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <span id="txtTier2">
+                                Cris, la VPO <input id="nVPO" name="nVPO" class="editable" placeholder="J5XXXXXX"
+                                    value="" required />
+                                queda con dependencia al Tier-2.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="buttonsToBoss" class="row items-row noWrap">
+                <div class="col">
+                    <input id="btnTier2" class="btn btn-main" type="submit" value="Copiar" />
+                </div>
+                <div class="col">
+                    <input id="btnTier2Del" class="btn warn" type="reset" value="Cerrar" data-modal="modalToBoss" />
+                </div>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog id="modalDestinatario" class="borderless radius dialogo bg-none shadows w50">
+        <form id="frmDestinatario" method="dialog" class="card bg-blanco m-0">
+            <p>Agregar destinatario</p>
+            <div class="row">
+                <div class="col">
+                    <label for="txtNombDest">Nombre:</label>
+                    <input type="text" name="txtNombDest" id="txtNombDest" required />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="txtCorreoDest">Correo:</label>
+                    <input type="text" name="txtCorreoDest" id="txtCorreoDest" required />
+                </div>
+            </div>
+            <div class="row items-row noWrap">
+                <div class="col">
+                    <input id="btnGuardarDest" class="btn btn-main" type="submit" value="Guardar" />
+                </div>
+                <div class="col">
+                    <input id="btnCerrarDest" class="btn warn" type="reset" value="Cerrar"
+                        data-modal="modalDestinatario" />
+                </div>
+            </div>
+        </form>
+    </dialog>
+
+    <div id="galeriaFondos" class="img-fondo">
+        <svg class="no-svg" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 90">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+                <title></title>
+                <rect class="cls-1" height="10.68" rx="1.77" ry="1.77" width="10.68" x="84.85" y="70.89"></rect>
+                <rect class="cls-1" height="10.68" rx="1.77" ry="1.77" width="10.68" x="56.7" y="68.95"></rect>
+                <rect class="cls-1" height="19.41" rx="3.23" ry="3.23" width="19.41" x="6.23" y="33.04"></rect>
+                <rect class="cls-1" height="19.41" rx="3.23" ry="3.23" width="19.41" x="47" y="37.89"></rect>
+                <rect class="cls-1" height="17.47" rx="2.9" ry="2.9" width="17.47" x="68.35" y="52.45"></rect>
+                <rect class="cls-1" height="31.06" rx="5.16" ry="5.16" width="31.06" x="24.68" y="1.98"></rect>
+                <path class="cls-2"
+                    d="M55.54,48.91a1,1,0,0,0-1.4-.15L41.21,59.1V25.27a1,1,0,0,0-2,0v39.4L18.57,44.93a1,1,0,0,0-1.38,1.45l22,21.06V90.3a1,1,0,0,0,2,0V61.67L55.39,50.32A1,1,0,0,0,55.54,48.91Z">
+                </path>
+                <path class="cls-2"
+                    d="M90.59,78.18a1,1,0,0,0-1.36-.4l-11.14,6V66a1,1,0,1,0-2,0V81.2L63,74.84a1,1,0,0,0-.87,1.81l14,6.78V90.3a1,1,0,0,0,2,0V86.05l12.09-6.51A1,1,0,0,0,90.59,78.18Z">
+                </path>
+            </g>
+        </svg>
+
+        <svg class="no-svg" id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <g transform="translate(1)">
+                <g>
+                    <path class="cls-0" d="M323.267,435.2c-5.12,0-8.533-3.413-8.533-8.533v-34.133c0-5.12,3.413-8.533,8.533-8.533
+              c5.12,0,8.533,3.413,8.533,8.533v34.133C331.8,431.787,328.387,435.2,323.267,435.2z" />
+                    <path class="cls-0" d="M442.733,435.2c-5.12,0-8.533-3.413-8.533-8.533v-34.133c0-5.12,3.413-8.533,8.533-8.533
+              c5.12,0,8.533,3.413,8.533,8.533v34.133C451.267,431.787,447.853,435.2,442.733,435.2z" />
+                    <path class="cls-0" d="M323.267,401.067c-5.12,0-8.533-3.413-8.533-8.533v-51.2c0-5.12,3.413-8.533,8.533-8.533
+              c5.12,0,8.533,3.413,8.533,8.533v51.2C331.8,397.653,328.387,401.067,323.267,401.067z" />
+                    <path class="cls-0" d=" M442.733,401.067c-5.12,0-8.533-3.413-8.533-8.533v-51.2c0-5.12,3.413-8.533,8.533-8.533
+              c5.12,0,8.533,3.413,8.533,8.533v51.2C451.267,397.653,447.853,401.067,442.733,401.067z" />
+                    <path class="cls-0" d="M468.333,401.067H297.667c-5.12,0-8.533-3.413-8.533-8.533s3.413-8.533,8.533-8.533h170.667
+              c5.12,0,8.533,3.413,8.533,8.533S473.453,401.067,468.333,401.067z" />
+                    <path class="cls-0" d="M468.333,366.933H297.667c-5.12,0-8.533-3.413-8.533-8.533s3.413-8.533,8.533-8.533h170.667
+              c5.12,0,8.533,3.413,8.533,8.533S473.453,366.933,468.333,366.933z" />
+                    <path class="cls-0" d="M127,512c-5.12,0-8.533-3.413-8.533-8.533v-179.2c0-5.12,3.413-8.533,8.533-8.533
+              s8.533,3.413,8.533,8.533v179.2C135.533,508.587,132.12,512,127,512z" />
+                    <path class="cls-1" d="M220.867,76.8c-5.12,0-8.533-3.413-8.533-8.533c0-33.28,26.453-59.733,59.733-59.733
+              c5.12,0,8.533,3.413,8.533,8.533s-3.413,8.533-8.533,8.533c-23.893,0-42.667,18.773-42.667,42.667
+              C229.4,73.387,225.987,76.8,220.867,76.8z" />
+                    <path class="cls-1" d="M220.867,76.8c-5.12,0-8.533-3.413-8.533-8.533c0-18.773-15.36-34.133-34.133-34.133
+              c-5.12,0-8.533-3.413-8.533-8.533s3.413-8.533,8.533-8.533c28.16,0,51.2,23.04,51.2,51.2C229.4,73.387,225.987,76.8,220.867,76.8z
+              " />
+                    <path class="cls-1" d="M437.613,138.24c11.947,0,22.187,11.093,22.187,24.747s-10.24,24.747-22.187,24.747h-96.427h-3.413
+              c-17.92,0-32.427-15.36-32.427-34.987s14.507-34.987,32.427-34.987c0,0,17.067-32.427,53.76-32.427
+              c23.04,0,42.667,17.067,42.667,52.907L437.613,138.24L437.613,138.24z" />
+                </g>
+                <path class="cls-1" d="M437.613,138.24H434.2c0-36.693-19.627-52.907-42.667-52.907c-5.12,0-9.387,0.853-14.507,1.707
+          c17.92,5.12,31.573,21.333,31.573,51.2h3.413c11.947,0,22.187,11.093,22.187,24.747s-10.24,24.747-22.187,24.747h25.6
+          c11.947,0,22.187-11.093,22.187-24.747S449.56,138.24,437.613,138.24" />
+                <path class="cls-1" d="M468.333,460.8H280.6v-15.36c0-14.507,11.947-27.307,27.307-27.307H441.88
+          c14.507,0,27.307,11.947,27.307,27.307v15.36H468.333z" />
+                <path class="cls-1" d="M441.027,418.133h-25.6c14.507,0,27.307,11.947,27.307,27.307v15.36h25.6v-15.36
+          C468.333,430.08,456.387,418.133,441.027,418.133" />
+                <polygon class="cls-1" points="118.467,85.333 16.067,401.067 118.467,401.067 220.867,401.067 	" />
+                <polygon class="cls-1" points="118.467,85.333 16.067,401.067 41.667,401.067 131.267,124.587 	" />
+                <path class="cls-2"
+                    d="M118.467,332.8c-2.56,0-4.267-0.853-5.973-2.56c-3.413-3.413-3.413-8.533,0-11.947l25.6-25.6
+          c3.413-3.413,8.533-3.413,11.947,0c3.413,3.413,3.413,8.533,0,11.947l-25.6,25.6C122.733,331.947,121.027,332.8,118.467,332.8z" />
+                <path class="cls-2"
+                    d="M118.467,332.8c-2.56,0-4.267-0.853-5.973-2.56l-25.6-25.6c-3.413-3.413-3.413-8.533,0-11.947
+          c3.413-3.413,8.533-3.413,11.947,0l25.6,25.6c3.413,3.413,3.413,8.533,0,11.947C122.733,331.947,121.027,332.8,118.467,332.8z" />
+                <path class="cls-2" d="M118.467,512c-5.12,0-8.533-3.413-8.533-8.533v-179.2c0-5.12,3.413-8.533,8.533-8.533s8.533,3.413,8.533,8.533v179.2
+          C127,508.587,123.587,512,118.467,512z" />
+                <path class="cls-2" d="M502.467,512H7.533C2.413,512-1,508.587-1,503.467c0-5.12,3.413-8.533,8.533-8.533h494.933c5.12,0,8.533,3.413,8.533,8.533
+          C511,508.587,507.587,512,502.467,512z" />
+                <path class="cls-1" d="M437.613,196.267h-98.987c-22.187,0-40.96-19.627-40.96-43.52c0-22.187,15.36-40.96,35.84-43.52
+          c6.827-9.387,25.6-32.427,58.027-32.427c23.893,0,47.787,17.067,51.2,53.76c14.507,2.56,25.6,16.213,25.6,32.427
+          C468.333,181.76,454.68,196.267,437.613,196.267z M391.533,93.867c-30.72,0-45.227,26.453-46.08,28.16
+          c-1.707,2.56-4.267,4.267-7.68,4.267c-12.8,0-23.893,11.947-23.893,26.453s10.24,26.453,23.893,26.453h98.987
+          c7.68,0,13.653-6.827,13.653-16.213s-5.973-16.213-13.653-16.213h-2.56c-5.12,0-8.533-3.413-8.533-8.533
+          C425.667,110.933,412.867,93.867,391.533,93.867z" />
+                <path class="cls-2"
+                    d="M212.333,68.267c-5.12,0-8.533-3.413-8.533-8.533C203.8,26.453,230.253,0,263.533,0c5.12,0,8.533,3.413,8.533,8.533
+          s-3.413,8.533-8.533,8.533c-23.893,0-42.667,18.773-42.667,42.667C220.867,64.853,217.453,68.267,212.333,68.267z" />
+                <path class="cls-2" d="M212.333,68.267c-5.12,0-8.533-3.413-8.533-8.533c0-18.773-15.36-34.133-34.133-34.133c-5.12,0-8.533-3.413-8.533-8.533
+          s3.413-8.533,8.533-8.533c28.16,0,51.2,23.04,51.2,51.2C220.867,64.853,217.453,68.267,212.333,68.267z" />
+                <path class="cls-2" d="M314.733,512c-5.12,0-8.533-3.413-8.533-8.533V460.8c0-5.12,3.413-8.533,8.533-8.533c5.12,0,8.533,3.413,8.533,8.533
+          v42.667C323.267,508.587,319.853,512,314.733,512z" />
+                <path class="cls-2" d="M434.2,512c-5.12,0-8.533-3.413-8.533-8.533V460.8c0-5.12,3.413-8.533,8.533-8.533c5.12,0,8.533,3.413,8.533,8.533v42.667
+          C442.733,508.587,439.32,512,434.2,512z" />
+                <path class="cls-2" d="M314.733,426.667c-5.12,0-8.533-3.413-8.533-8.533V384c0-5.12,3.413-8.533,8.533-8.533c5.12,0,8.533,3.413,8.533,8.533
+          v34.133C323.267,423.253,319.853,426.667,314.733,426.667z" />
+                <path class="cls-2" d="M434.2,426.667c-5.12,0-8.533-3.413-8.533-8.533V384c0-5.12,3.413-8.533,8.533-8.533c5.12,0,8.533,3.413,8.533,8.533
+          v34.133C442.733,423.253,439.32,426.667,434.2,426.667z" />
+                <path class="cls-2" d="M314.733,392.533c-5.12,0-8.533-3.413-8.533-8.533v-51.2c0-5.12,3.413-8.533,8.533-8.533c5.12,0,8.533,3.413,8.533,8.533
+          V384C323.267,389.12,319.853,392.533,314.733,392.533z" />
+                <path class="cls-2" d="M434.2,392.533c-5.12,0-8.533-3.413-8.533-8.533v-51.2c0-5.12,3.413-8.533,8.533-8.533c5.12,0,8.533,3.413,8.533,8.533V384
+          C442.733,389.12,439.32,392.533,434.2,392.533z" />
+                <path class="cls-2" d="M468.333,469.333H280.6c-5.12,0-8.533-3.413-8.533-8.533v-15.36c0-19.627,16.213-35.84,35.84-35.84H441.88
+          c19.627,0,35.84,16.213,35.84,35.84v15.36C476.867,465.92,473.453,469.333,468.333,469.333z M289.133,452.267H459.8v-6.827
+          c0-10.24-8.533-18.773-18.773-18.773h-133.12c-10.24,0-18.773,8.533-18.773,18.773V452.267z" />
+                <path class="cls-2" d="M459.8,392.533H289.133c-5.12,0-8.533-3.413-8.533-8.533c0-5.12,3.413-8.533,8.533-8.533H459.8
+          c5.12,0,8.533,3.413,8.533,8.533C468.333,389.12,464.92,392.533,459.8,392.533z" />
+                <path class="cls-2" d="M459.8,358.4H289.133c-5.12,0-8.533-3.413-8.533-8.533c0-5.12,3.413-8.533,8.533-8.533H459.8
+          c5.12,0,8.533,3.413,8.533,8.533C468.333,354.987,464.92,358.4,459.8,358.4z" />
+                <path class="cls-0" d="M220.867,409.6h-204.8c-2.56,0-5.12-1.707-6.827-3.413c-1.707-2.56-1.707-5.12-1.707-7.68l102.4-315.733
+          c1.707-3.413,5.12-5.973,8.533-5.973s6.827,2.56,8.533,5.973l102.4,315.733c0.853,2.56,0,5.12-0.853,7.68
+          C225.987,407.893,223.427,409.6,220.867,409.6z M28.013,392.533H208.92L118.467,112.64L28.013,392.533z" />
+            </g>
+        </svg>
+
+        <svg class="no-svg" id="Layer_3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 95">
+            <path class="cls-1"
+                d="M85.48,45.77A10.67,10.67,0,0,0,76,61.28a10.72,10.72,0,1,0,.58,1,10.67,10.67,0,1,0,8.93-16.51Z" />
+            <path class="cls-1"
+                d="M56.64,36.54A10.67,10.67,0,1,0,46.45,18.31a11.7,11.7,0,0,0,.21-2.15,11.16,11.16,0,1,0-22.32,0,10.89,10.89,0,0,0,.21,2.15,10.67,10.67,0,1,0-10.2,18.23,10.68,10.68,0,1,0,10.2,18.24,10.89,10.89,0,0,0-.21,2.15,11.16,11.16,0,1,0,22.32,0,11.7,11.7,0,0,0-.21-2.15A10.67,10.67,0,1,0,56.64,36.54ZM24.55,38.69a10.68,10.68,0,0,0-3.82-2.15,10.51,10.51,0,0,0,3.82-2.14,11.06,11.06,0,0,0,0,4.29ZM43,24.45a10,10,0,0,0-.18,1.9A10.05,10.05,0,0,0,43,28.26,11.32,11.32,0,0,0,40,26.35,11.29,11.29,0,0,0,43,24.45Zm0,24.19A11.26,11.26,0,0,0,40,46.73,11.23,11.23,0,0,0,43,44.83a10.17,10.17,0,0,0,0,3.81ZM28,24.45A11,11,0,0,0,31,26.35,11,11,0,0,0,28,28.26a10.94,10.94,0,0,0,.18-1.91A10.83,10.83,0,0,0,28,24.45ZM31,46.73A11.21,11.21,0,0,0,28,48.64a10.17,10.17,0,0,0,0-3.81A11,11,0,0,0,31,46.73Zm15.48-8a11.06,11.06,0,0,0,0-4.29,10.55,10.55,0,0,0,3.81,2.14A10.72,10.72,0,0,0,46.45,38.69Z" />
+            <path class="cls-2"
+                d="M53.45,46.71a1,1,0,0,0-1,1V71H37V58.38a1,1,0,0,0-2,0V71H19.51V47.71a1,1,0,0,0-2,0V72a1,1,0,0,0,1,1H35V93.32a1,1,0,0,0,2,0V73H53.45a1,1,0,0,0,1-1V47.71A1,1,0,0,0,53.45,46.71Z" />
+            <path class="cls-2"
+                d="M84.51,57.38a1,1,0,0,0-1,1V81.65H68V69.06a1,1,0,0,0-2,0V82.65a1,1,0,0,0,1,1h7.74v9.67a1,1,0,0,0,2,0V83.65h7.73a1,1,0,0,0,1-1V58.38A1,1,0,0,0,84.51,57.38Z" />
+        </svg>
+
+        <svg class="no-svg" id="Layer_4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 460">
+            <g transform="translate(1)">
+                <g>
+                    <path class="cls-0" d="M118.467,465.067c-5.12,0-8.533-3.413-8.533-8.533V294.4c0-5.12,3.413-8.533,8.533-8.533
+              S127,289.28,127,294.4v162.133C127,461.653,123.587,465.067,118.467,465.067z" />
+                    <path class="cls-0" d="M383,465.067c-5.12,0-8.533-3.413-8.533-8.533V234.667c0-5.12,3.413-8.533,8.533-8.533
+              c5.12,0,8.533,3.413,8.533,8.533v221.867C391.533,461.653,388.12,465.067,383,465.067z" />
+                    <path class="cls-0" d="M237.933,379.733c-5.12,0-8.533-3.413-8.533-8.533v-25.6c0-5.12,3.413-8.533,8.533-8.533
+              c5.12,0,8.533,3.413,8.533,8.533v25.6C246.467,376.32,243.053,379.733,237.933,379.733z" />
+                    <path class="cls-0" d="M289.133,379.733c-5.12,0-8.533-3.413-8.533-8.533v-25.6c0-5.12,3.413-8.533,8.533-8.533
+              c5.12,0,8.533,3.413,8.533,8.533v25.6C297.667,376.32,294.253,379.733,289.133,379.733z" />
+                    <polygon class="cls-0" points="229.4,456.533 280.6,456.533 280.6,413.867 229.4,413.867 		" />
+                    <path class="cls-1" d="M212.333,260.267c0,56.32-46.08,102.4-102.4,102.4s-102.4-46.08-102.4-102.4
+              s46.08-102.4,102.4-102.4S212.333,203.947,212.333,260.267" />
+                </g>
+                <path class="cls-1" d="M33.133,260.267c0-52.053,39.253-95.573,89.6-101.547c-4.267-0.853-8.533-0.853-12.8-0.853
+          c-56.32,0-102.4,46.08-102.4,102.4s46.08,102.4,102.4,102.4c4.267,0,8.533,0,12.8-0.853
+          C72.387,355.84,33.133,312.32,33.133,260.267" />
+                <path class="cls-1" d="M502.467,183.467c0,70.827-57.173,128-128,128s-128-57.173-128-128s57.173-128,128-128
+          S502.467,112.64,502.467,183.467" />
+                <path class="cls-4"
+                    d="M374.467,55.467c-4.267,0-8.533,0-12.8,0.853c64.853,5.973,115.2,60.587,115.2,127.147
+          s-50.347,121.173-115.2,127.147c4.267,0,8.533,0.853,12.8,0.853c70.827,0,128-57.173,128-128S445.293,55.467,374.467,55.467" />
+                <path class="cls-1" d="M306.2,413.867H203.8v-21.333c0-11.947,9.387-21.333,21.333-21.333h58.88
+          c11.947,0,21.333,9.387,21.333,21.333v21.333H306.2z" />
+                <path class="cls-1" d="M109.933,371.2C48.493,371.2-1,321.707-1,260.267s49.493-110.933,110.933-110.933s110.933,49.493,110.933,110.933
+          S171.373,371.2,109.933,371.2z M109.933,166.4c-52.053,0-93.867,41.813-93.867,93.867s41.813,93.867,93.867,93.867
+          S203.8,312.32,203.8,260.267S161.987,166.4,109.933,166.4z" />
+                <path class="cls-2" d="M109.933,302.933c-2.56,0-4.267-0.853-5.973-2.56l-25.6-25.6c-3.413-3.413-3.413-8.533,0-11.947s8.533-3.413,11.947,0
+          l25.6,25.6c3.413,3.413,3.413,8.533,0,11.947C114.2,302.08,112.493,302.933,109.933,302.933z" />
+                <path class="cls-2"
+                    d="M109.933,302.933c-2.56,0-4.267-0.853-5.973-2.56c-3.413-3.413-3.413-8.533,0-11.947l25.6-25.6
+          c3.413-3.413,8.533-3.413,11.947,0s3.413,8.533,0,11.947l-25.6,25.6C114.2,302.08,112.493,302.933,109.933,302.933z" />
+                <path class="cls-2" d="M109.933,465.067c-5.12,0-8.533-3.413-8.533-8.533V294.4c0-5.12,3.413-8.533,8.533-8.533s8.533,3.413,8.533,8.533v162.133
+          C118.467,461.653,115.053,465.067,109.933,465.067z" />
+                <path class="cls-1" d="M374.467,320c-75.093,0-136.533-61.44-136.533-136.533s61.44-136.533,136.533-136.533S511,108.373,511,183.467
+          S449.56,320,374.467,320z M374.467,64C308.76,64,255,117.76,255,183.467s53.76,119.467,119.467,119.467
+          s119.467-53.76,119.467-119.467S440.173,64,374.467,64z" />
+                <path class="cls-2"
+                    d="M374.467,243.2c-2.56,0-4.267-0.853-5.973-2.56l-25.6-25.6c-3.413-3.413-3.413-8.533,0-11.947
+          c3.413-3.413,8.533-3.413,11.947,0l25.6,25.6c3.413,3.413,3.413,8.533,0,11.947C378.733,242.347,377.027,243.2,374.467,243.2z" />
+                <path class="cls-2"
+                    d="M374.467,243.2c-2.56,0-4.267-0.853-5.973-2.56c-3.413-3.413-3.413-8.533,0-11.947l25.6-25.6
+          c3.413-3.413,8.533-3.413,11.947,0c3.413,3.413,3.413,8.533,0,11.947l-25.6,25.6C378.733,242.347,377.027,243.2,374.467,243.2z" />
+                <path class="cls-2" d="M374.467,465.067c-5.12,0-8.533-3.413-8.533-8.533V234.667c0-5.12,3.413-8.533,8.533-8.533c5.12,0,8.533,3.413,8.533,8.533
+          v221.867C383,461.653,379.587,465.067,374.467,465.067z" />
+                <path class="cls-2" d="M502.467,465.067H7.533c-5.12,0-8.533-3.413-8.533-8.533S2.413,448,7.533,448h494.933c5.12,0,8.533,3.413,8.533,8.533
+          S507.587,465.067,502.467,465.067z" />
+                <path class="cls-2" d="M306.2,422.4H203.8c-5.12,0-8.533-3.413-8.533-8.533v-21.333c0-17.067,13.653-29.867,29.867-29.867h58.88
+          c17.067,0,29.867,13.653,29.867,29.867v21.333C314.733,418.987,311.32,422.4,306.2,422.4z M212.333,405.333h85.333v-12.8
+          c0-6.827-5.973-12.8-12.8-12.8h-58.88c-6.827,0-12.8,5.973-12.8,12.8v12.8H212.333z" />
+                <path class="cls-2" d="M229.4,379.733c-5.12,0-8.533-3.413-8.533-8.533v-25.6c0-5.12,3.413-8.533,8.533-8.533c5.12,0,8.533,3.413,8.533,8.533
+          v25.6C237.933,376.32,234.52,379.733,229.4,379.733z" />
+                <path class="cls-2" d="M280.6,379.733c-5.12,0-8.533-3.413-8.533-8.533v-25.6c0-5.12,3.413-8.533,8.533-8.533s8.533,3.413,8.533,8.533v25.6
+          C289.133,376.32,285.72,379.733,280.6,379.733z" />
+                <path class="cls-2"
+                    d="M280.6,465.067h-51.2c-5.12,0-8.533-3.413-8.533-8.533v-42.667c0-5.12,3.413-8.533,8.533-8.533h51.2
+          c5.12,0,8.533,3.413,8.533,8.533v42.667C289.133,461.653,285.72,465.067,280.6,465.067z M237.933,448h34.133v-25.6h-34.133V448z" />
+            </g>
+        </svg>
+
+        <svg class="no-svg" id="Layer_5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 96">
+            <circle class="cls-1" cx="19.48" cy="46.04" r="11.65" />
+            <circle class="cls-1" cx="60.25" cy="51.87" r="11.65" />
+            <circle class="cls-1" cx="42.78" cy="23.72" r="17.47" />
+            <circle class="cls-1" cx="78.69" cy="67.4" r="8.74" />
+            <circle class="cls-1" cx="89.85" cy="81.47" r="6.31" />
+            <circle class="cls-1" cx="65.59" cy="78.56" r="6.31" />
+            <path class="cls-2"
+                d="M58.69,53,42.81,64.47V29.54a1,1,0,1,0-2,0V58.78L21,46.17a1,1,0,1,0-1.07,1.69L40.81,61.15V94.57a1,1,0,0,0,2,0V66.94l17-12.32A1,1,0,1,0,58.69,53Z" />
+            <path class="cls-2"
+                d="M89.29,82.48A1,1,0,0,0,88,82l-8.26,4.13V70.31a1,1,0,0,0-2,0V83.54l-11.18-5.4A1,1,0,1,0,65.64,80l12,5.81v8.81a1,1,0,0,0,2,0V88.4l9.15-4.58A1,1,0,0,0,89.29,82.48Z" />
+        </svg>
+
+        <svg class="no-svg" id="Layer_6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 475">
+            <g transform="translate(1)">
+                <g>
+                    <path class="cls-1" d="M144.067,115.2c-5.12,0-8.533-3.413-8.533-8.533c0-33.28,26.453-59.733,59.733-59.733
+              c5.12,0,8.533,3.413,8.533,8.533S200.387,64,195.267,64c-23.893,0-42.667,18.773-42.667,42.667
+              C152.6,111.787,149.187,115.2,144.067,115.2z" />
+                    <path class="cls-1" d="M144.067,115.2c-5.12,0-8.533-3.413-8.533-8.533c0-18.773-15.36-34.133-34.133-34.133
+              c-5.12,0-8.533-3.413-8.533-8.533c0-5.12,3.413-8.533,8.533-8.533c28.16,0,51.2,23.04,51.2,51.2
+              C152.6,111.787,149.187,115.2,144.067,115.2z" />
+                    <path class="cls-1" d="M263.533,379.733c-5.973,0-11.947,1.707-17.067,3.413c0-1.707,0-2.56,0-3.413
+              c0-23.893-18.773-42.667-42.667-42.667c-11.947,0-22.187,5.12-30.72,12.8C164.547,331.947,147.48,320,127,320
+              c-28.16,0-51.2,23.04-51.2,51.2c0,3.413,0,6.827,0.853,9.387c-2.56,0-5.973-0.853-9.387-0.853
+              c-23.893,0-42.667,18.773-42.667,42.667c0,23.893,18.773,42.667,42.667,42.667h196.267c23.893,0,42.667-18.773,42.667-42.667
+              C306.2,398.507,287.427,379.733,263.533,379.733" />
+                </g>
+                <path class="cls-4"
+                    d="M50.2,422.4c0-23.893,18.773-42.667,42.667-42.667c3.413,0,6.827,0.853,9.387,0.853
+          c-0.853-2.56-0.853-5.973-0.853-9.387c0-23.893,16.213-43.52,38.4-49.493c-4.267-0.853-8.533-1.707-12.8-1.707
+          c-28.16,0-51.2,23.04-51.2,51.2c0,3.413,0,6.827,0.853,9.387c-2.56,0-5.973-0.853-9.387-0.853
+          c-23.893,0-42.667,18.773-42.667,42.667c0,23.893,18.773,42.667,42.667,42.667h25.6C68.973,465.067,50.2,446.293,50.2,422.4" />
+                <path class="cls-1" d="M442.733,379.733c-1.707,0-4.267,0-5.973,0.853c4.267-7.68,5.973-17.067,5.973-26.453
+          c0-33.28-26.453-59.733-59.733-59.733c-30.72,0-55.467,23.04-58.88,52.053c-7.68-11.093-20.48-17.92-34.987-17.92
+          c-23.893,0-42.667,18.773-42.667,42.667c0,4.267,0.853,7.68,1.707,11.093c5.12-1.707,10.24-2.56,15.36-2.56
+          c23.893,0,42.667,18.773,42.667,42.667c0,13.653-6.827,26.453-17.067,34.133l-8.533,8.533h162.133
+          c23.893,0,42.667-18.773,42.667-42.667C485.4,398.507,466.627,379.733,442.733,379.733" />
+                <path class="cls-4"
+                    d="M442.733,379.733c-1.707,0-4.267,0-5.973,0.853c4.267-7.68,5.973-17.067,5.973-26.453
+          c0-33.28-26.453-59.733-59.733-59.733c-4.267,0-8.533,0.853-12.8,1.707c26.453,5.973,46.933,29.867,46.933,58.027
+          c0,9.387-2.56,17.92-5.973,26.453c1.707,0,4.267-0.853,5.973-0.853c23.893,0,42.667,18.773,42.667,42.667
+          c0,23.893-18.773,42.667-42.667,42.667h25.6c23.893,0,42.667-18.773,42.667-42.667C485.4,398.507,466.627,379.733,442.733,379.733" />
+                <path class="cls-1" d="M403.48,142.507c11.947,0,22.187,11.093,22.187,24.747S415.427,192,403.48,192h-96.427h-3.413
+          c-17.92,0-32.427-15.36-32.427-34.987s14.507-34.987,32.427-34.987c0,0,17.067-32.427,53.76-32.427
+          c23.04,0,42.667,17.067,42.667,53.76h3.413V142.507z" />
+                <path class="cls-4" d="M403.48,142.507h-3.413c0-35.84-19.627-52.907-42.667-52.907c-5.12,0-9.387,0.853-14.507,1.707
+          c17.92,5.12,31.573,21.333,31.573,51.2h3.413c11.947,0,22.187,11.093,22.187,24.747S389.827,192,377.88,192h25.6
+          c11.947,0,22.187-11.093,22.187-24.747S415.427,142.507,403.48,142.507" />
+                <path class="cls-4"
+                    d="M263.533,473.6H67.267c-28.16,0-51.2-23.04-51.2-51.2s23.04-51.2,51.2-51.2c0-33.28,26.453-59.733,59.733-59.733
+          c19.627,0,37.547,9.387,48.64,25.6c8.533-5.12,17.92-8.533,28.16-8.533c25.6,0,46.933,18.773,50.347,43.52
+          c3.413-0.853,5.973-0.853,9.387-0.853c28.16,0,51.2,23.04,51.2,51.2S291.693,473.6,263.533,473.6z M67.267,388.267
+          c-18.773,0-34.133,15.36-34.133,34.133s15.36,34.133,34.133,34.133h196.267c18.773,0,34.133-15.36,34.133-34.133
+          s-15.36-34.133-34.133-34.133c-5.12,0-9.387,0.853-13.653,3.413c-2.56,0.853-5.973,0.853-8.533-0.853
+          c-2.56-1.707-3.413-4.267-3.413-7.68c0-0.853,0-0.853,0-1.707v-0.853c0-18.773-15.36-34.133-34.133-34.133
+          c-9.387,0-17.92,3.413-23.893,10.24c-1.707,1.707-5.12,2.56-7.68,2.56c-2.56-0.853-5.12-2.56-5.973-5.12
+          c-7.68-16.213-23.04-25.6-39.253-25.6c-23.893,0-42.667,18.773-42.667,42.667c0,2.56,0,5.12,0.853,7.68
+          c0.853,2.56,0,5.973-2.56,7.68c-2.56,1.707-5.12,2.56-7.68,2.56C72.387,388.267,69.827,388.267,67.267,388.267z" />
+                <path class="cls-4" d="M442.733,473.6H280.6c-3.413,0-6.827-1.707-7.68-5.12c-0.853-3.413-0.853-6.827,1.707-9.387l8.533-8.533l0.853-0.853
+          c8.533-6.827,13.653-16.213,13.653-27.307c0-18.773-15.36-34.133-34.133-34.133c-4.267,0-8.533,0.853-11.947,2.56
+          c-2.56,0.853-5.12,0.853-6.827,0c-2.56-0.853-3.413-3.413-4.267-5.12c-1.707-5.973-2.56-10.24-2.56-14.507
+          c0-28.16,23.04-51.2,51.2-51.2c11.093,0,21.333,3.413,29.867,10.24c10.24-25.6,34.987-44.373,64-44.373
+          c37.547,0,68.267,30.72,68.267,68.267c0,5.973-0.853,11.947-2.56,17.067c25.6,3.413,45.227,24.747,45.227,51.2
+          C493.933,450.56,470.893,473.6,442.733,473.6z M301.933,456.533h140.8c18.773,0,34.133-15.36,34.133-34.133
+          s-15.36-34.133-34.133-34.133c-1.707,0-2.56,0-4.267,0.853c-3.413,0.853-6.827-0.853-8.533-3.413
+          c-1.707-2.56-2.56-5.973-0.853-8.533c3.413-6.827,5.12-14.507,5.12-22.187c0-28.16-23.04-51.2-51.2-51.2
+          c-25.6,0-47.787,18.773-50.347,44.373c-0.853,3.413-2.56,5.973-5.973,6.827c-3.413,0.853-6.827-0.853-9.387-3.413
+          c-6.827-9.387-17.067-14.507-28.16-14.507c-18.773,0-34.133,15.36-34.133,34.133v0.853c2.56-0.853,5.973-0.853,8.533-0.853
+          c28.16,0,51.2,23.04,51.2,51.2C314.733,435.2,309.613,447.147,301.933,456.533z" />
+                <path class="cls-2" d="M502.467,473.6H7.533c-5.12,0-8.533-3.413-8.533-8.533c0-5.12,3.413-8.533,8.533-8.533h494.933
+          c5.12,0,8.533,3.413,8.533,8.533C511,470.187,507.587,473.6,502.467,473.6z" />
+                <path class="cls-2" d="M161.133,473.6c-5.12,0-8.533-3.413-8.533-8.533v-59.733c0-5.12,3.413-8.533,8.533-8.533c5.12,0,8.533,3.413,8.533,8.533
+          v59.733C169.667,470.187,166.253,473.6,161.133,473.6z" />
+                <path class="cls-2"
+                    d="M161.133,473.6c-2.56,0-4.267-0.853-5.973-2.56c-3.413-3.413-3.413-8.533,0-11.947l42.667-42.667
+          c3.413-3.413,8.533-3.413,11.947,0c3.413,3.413,3.413,8.533,0,11.947l-42.667,42.667C165.4,472.747,163.693,473.6,161.133,473.6z" />
+                <path class="cls-2"
+                    d="M161.133,473.6c-2.56,0-4.267-0.853-5.973-2.56l-42.667-42.667c-3.413-3.413-3.413-8.533,0-11.947
+          c3.413-3.413,8.533-3.413,11.947,0l42.667,42.667c3.413,3.413,3.413,8.533,0,11.947C165.4,472.747,163.693,473.6,161.133,473.6z" />
+                <path class="cls-2" d="M383,473.6c-5.12,0-8.533-3.413-8.533-8.533v-59.733c0-5.12,3.413-8.533,8.533-8.533c5.12,0,8.533,3.413,8.533,8.533
+          v59.733C391.533,470.187,388.12,473.6,383,473.6z" />
+                <path class="cls-2"
+                    d="M383,473.6c-2.56,0-4.267-0.853-5.973-2.56c-3.413-3.413-3.413-8.533,0-11.947l42.667-42.667
+          c3.413-3.413,8.533-3.413,11.947,0c3.413,3.413,3.413,8.533,0,11.947l-42.667,42.667C387.267,472.747,385.56,473.6,383,473.6z" />
+                <path class="cls-2"
+                    d="M383,473.6c-2.56,0-4.267-0.853-5.973-2.56l-42.667-42.667c-3.413-3.413-3.413-8.533,0-11.947
+          c3.413-3.413,8.533-3.413,11.947,0l42.667,42.667c3.413,3.413,3.413,8.533,0,11.947C387.267,472.747,385.56,473.6,383,473.6z" />
+                <path class="cls-4" d="M403.48,200.533h-98.987c-22.187,0-40.96-19.627-40.96-43.52c0-22.187,15.36-40.96,35.84-43.52
+          c5.973-9.387,24.747-32.427,58.027-32.427c23.893,0,47.787,17.067,51.2,53.76c14.507,2.56,25.6,16.213,25.6,32.427
+          C434.2,186.027,420.547,200.533,403.48,200.533z M357.4,98.133c-30.72,0-45.227,26.453-46.08,28.16
+          c-1.707,2.56-4.267,4.267-7.68,4.267c-12.8,0-23.893,11.947-23.893,26.453s10.24,26.453,23.893,26.453h98.987
+          c7.68,0,13.653-6.827,13.653-16.213s-5.973-16.213-13.653-16.213h-2.56c-5.12,0-8.533-3.413-8.533-8.533
+          C391.533,115.2,378.733,98.133,357.4,98.133z" />
+                <path class="cls-2"
+                    d="M135.533,106.667c-5.12,0-8.533-3.413-8.533-8.533c0-33.28,26.453-59.733,59.733-59.733c5.12,0,8.533,3.413,8.533,8.533
+          s-3.413,8.533-8.533,8.533c-23.893,0-42.667,18.773-42.667,42.667C144.067,103.253,140.653,106.667,135.533,106.667z" />
+                <path class="cls-2" d="M135.533,106.667c-5.12,0-8.533-3.413-8.533-8.533C127,79.36,111.64,64,92.867,64c-5.12,0-8.533-3.413-8.533-8.533
+          s3.413-8.533,8.533-8.533c28.16,0,51.2,23.04,51.2,51.2C144.067,103.253,140.653,106.667,135.533,106.667z" />
+            </g>
+        </svg>
+
+        <svg class="no-svg" id="Layer_7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 85">
+            <path class="cls-2"
+                d="M47.21,68.42,34.07,74.55V55.74a1,1,0,0,0-2,0V91.65a1,1,0,0,0,2,0V76.76l14-6.52a1,1,0,0,0-.84-1.82Z" />
+            <path class="cls-2"
+                d="M87.53,73.42a1,1,0,0,0-1.33-.48l-5.54,2.58v-12a1,1,0,1,0-2,0V91.65a1,1,0,0,0,2,0V77.73l6.38-3A1,1,0,0,0,87.53,73.42Z" />
+            <path class="cls-1"
+                d="M59.31,30A25.75,25.75,0,1,0,33.56,55.77,25.78,25.78,0,0,0,59.31,30ZM33.56,53.77A23.75,23.75,0,1,1,57.31,30,23.77,23.77,0,0,1,33.56,53.77Z" />
+            <path class="cls-1" d="M33.56,14a16,16,0,1,0,16,16A16.06,16.06,0,0,0,33.56,14Z" />
+            <path class="cls-1"
+                d="M54.91,52.8A10.22,10.22,0,1,0,65.13,63,10.23,10.23,0,0,0,54.91,52.8Zm0,18.44A8.22,8.22,0,1,1,63.13,63,8.23,8.23,0,0,1,54.91,71.24Z" />
+            <path class="cls-1"
+                d="M94.25,48.46A15.08,15.08,0,1,0,79.17,63.54,15.09,15.09,0,0,0,94.25,48.46ZM79.17,61.54A13.08,13.08,0,1,1,92.25,48.46,13.09,13.09,0,0,1,79.17,61.54Z" />
+            <path class="cls-1" d="M79.17,42.47a6,6,0,1,0,6,6A6,6,0,0,0,79.17,42.47Z" />
+            <path class="cls-1"
+                d="M90.1,65.42a5.41,5.41,0,1,0,5.41,5.41A5.41,5.41,0,0,0,90.1,65.42Zm0,8.82a3.41,3.41,0,1,1,3.41-3.41A3.41,3.41,0,0,1,90.1,74.24Z" />
+        </svg>
+    </div>
+    <script type="module" src="./assets/libs/js/main.js"></script>
+</body>
+
+</html>
