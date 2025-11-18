@@ -8,11 +8,11 @@ export const tab2 = {
             if (contenido.length <= 1) { return; }
 
             utils.establecerValorPorID("commenCTR", `${contenido.at(0).trim()} ${iniciales}`);
-            utils.establecerValorPorID("txtOwner", contenido.at(8));
-            utils.establecerValorPorID("txtLotName", contenido.at(9));
-            utils.establecerValorPorID("txtPartType", contenido.at(10));
-            utils.establecerValorPorID("txtUnits", contenido.at(11));
-            utils.establecerValorPorID("txtQDF", contenido.at(14));
+            utils.establecerValorPorID("txtOwner", contenido.at(8).trim());
+            utils.establecerValorPorID("txtLotName", contenido.at(9).trim());
+            utils.establecerValorPorID("txtPartType", contenido.at(10).trim());
+            utils.establecerValorPorID("txtUnits", contenido.at(11).trim());
+            utils.establecerValorPorID("txtQDF", contenido.at(14).trim());
             utils.establecerValorPorID("txtLocation", "ACTIVE: RAW");
         }
     },
